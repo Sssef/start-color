@@ -33,10 +33,11 @@ const rootDir = fileURLToPath(new URL(".", import.meta.url));
 export default defineConfig(({ mode }) => {
   const isDev = mode === "development";
   const isProd = mode === "production";
+  const baseFromEnv = process.env.VITE_BASE_PATH;
 
   return {
     // Базовый путь (для деплоя в подпапку, если нужно: base: "/start-color/")
-    base: "/",
+    base: baseFromEnv || "/",
 
     // Алиасы для удобных импортов
     // resolve: {

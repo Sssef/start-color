@@ -1,5 +1,10 @@
 // Мок запросы данных Счётчика, Графиков аналитики
 // В продакшене заменить на реальные запросы
+import tool1Image from "../../assets/images/tools/tool1.png";
+import tool2Image from "../../assets/images/tools/tool2.png";
+import tool3Image from "../../assets/images/tools/tool3.png";
+import tool4Image from "../../assets/images/tools/tool4.png";
+
 export async function fakeFetch(url, mockData) {
   try {
     const response = await fetch(url, { method: "GET" });
@@ -46,7 +51,7 @@ export async function fetchColorsData() {
 // Мок данные для блока Оборудование
 export const mockData = [
   {
-    img: "/src/assets/images/tools/tool1.png",
+    img: tool1Image,
     title: "MAT12 KOHINOOR",
     spec: [
       "Двенадцать углов измерения: r45as15, r45as25, r45as45, r45as75, r45as105, r45as110, r15as_45, r15as_15, r15as15, r15as45, r15as80, r45as_15;",
@@ -55,7 +60,7 @@ export const mockData = [
     ],
   },
   {
-    img: "/src/assets/images/tools/tool2.png",
+    img: tool2Image,
     title: "MAT12 QC",
     spec: [
       "Двенадцать углов измерения: r45as15, r45as25, r45as45, r45as75, r45as105, r45as110, r15as_45, r15as_15, r15as15, r15as45, r15as80, r45as_15;",
@@ -66,7 +71,7 @@ export const mockData = [
     ],
   },
   {
-    img: "/src/assets/images/tools/tool3.png",
+    img: tool3Image,
     title: "MA5 TOPAZ",
     spec: [
       "lorem ipsum",
@@ -76,7 +81,7 @@ export const mockData = [
     ],
   },
   {
-    img: "/src/assets/images/tools/tool4.png",
+    img: tool4Image,
     title: "MAT6 KOHINOOR",
     spec: [
       "Двенадцать углов измерения: r45as15, r45as25, r45as45, r45as75, r45as105, r45as110, r15as_45, r15as_15, r15as15, r15as45, r15as80, r45as_15;",
@@ -84,7 +89,7 @@ export const mockData = [
     ],
   },
   {
-    img: "/src/assets/images/tools/tool2.png",
+    img: tool2Image,
     title: "MAT6 KOHINOO2",
     spec: [
       "Двенадцать углов измерения: r45as15, r45as25, r45as45, r45as75, r45as105, r45as110, r15as_45, r15as_15, r15as15, r15as45, r15as80, r45as_15;",

@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta
+      name="description"
+      content="Страница не найдена. Вернитесь на главную StartColor."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;700&family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <link rel="stylesheet" href="/src/styles/pages/error-page.css" />
+    <title>404 — Страница не найдена | StartColor</title>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <linearGradient id="grad-brand" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="var(--brand)" />
+          <stop offset="100%" stop-color="var(--brand-soft)" />
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <header class="header">
+      <div class="header__row">
+        <div class="header__menu-toggle">
+          <button
+            id="open-sidebar-button"
+            aria-label="open sidebar"
+            aria-expanded="false"
+            aria-controls="navbar"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="40px"
+              viewBox="0 -960 960 960"
+              width="40px"
+              fill="#0075c9"
+            >
+              <path
+                d="M165.13-254.62q-10.68 0-17.9-7.26-7.23-7.26-7.23-18t7.23-17.86q7.22-7.13 17.9-7.13h629.74q10.68 0 17.9 7.26 7.23 7.26 7.23 18t-7.23 17.87q-7.22 7.12-17.9 7.12H165.13Zm0-200.25q-10.68 0-17.9-7.27-7.23-7.26-7.23-17.99 0-10.74 7.23-17.87 7.22-7.13 17.9-7.13h629.74q10.68 0 17.9 7.27 7.23 7.26 7.23 17.99 0 10.74-7.23 17.87-7.22 7.13-17.9 7.13H165.13Zm0-200.26q-10.68 0-17.9-7.26-7.23-7.26-7.23-18t7.23-17.87q7.22-7.12 17.9-7.12h629.74q10.68 0 17.9 7.26 7.23 7.26 7.23 18t-7.23 17.86q-7.22 7.13-17.9 7.13H165.13Z"
+              />
+            </svg>
+          </button>
+
+          <button id="close-sidebar-button" aria-label="close sidebar">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="40px"
+              viewBox="0 -960 960 960"
+              width="40px"
+              fill="#0075c9"
+            >
+              <path
+                d="m480-444.62-209.69 209.7q-7.23 7.23-17.5 7.42-10.27.19-17.89-7.42-7.61-7.62-7.61-17.7 0-10.07 7.61-17.69L444.62-480l-209.7-209.69q-7.23-7.23-7.42-17.5-.19-10.27 7.42-17.89 7.62-7.61 17.7-7.61 10.07 0 17.69 7.61L480-515.38l209.69-209.7q7.23-7.23 17.5-7.42 10.27-.19 17.89 7.42 7.61 7.62 7.61 17.7 0 10.07-7.61 17.69L515.38-480l209.7 209.69q7.23 7.23 7.42 17.5.19 10.27-7.42 17.89-7.62 7.61-17.7 7.61-10.07 0-17.69-7.61L480-444.62Z"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <nav id="navbar" class="navbar">
+          <ul class="navbar__list">
+            <li class="navbar__item">
+              <a class="navbar__link" href="/about.html">О компании</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="/#tools">Оборудование</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="/#analytics">ПО и аналитика</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="/#tariffs">Тарифы</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="/#press">Пресса о нас</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="/about.html#contacts">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div id="overlay" aria-hidden="true"></div>
+
+        <div class="header__toolbar">
+          <div class="lang-picker" id="languagePicker">
+            <button
+              id="languagePickerButton"
+              class="lang-picker__trigger"
+              type="button"
+              aria-label="Выбор языка"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              aria-controls="languagePickerList"
+            >
+              <i class="lang-picker__globe" aria-hidden="true"> </i>
+              <span id="languagePickerValue" class="lang-picker__value"
+                >RU</span
+              >
+              <i
+                class="lang-picker__chevron chevron chevron--down chevron--sm"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <ul
+              id="languagePickerList"
+              class="lang-picker__list"
+              role="listbox"
+              aria-label="Язык интерфейса"
+              tabindex="-1"
+              hidden
+            >
+              <li class="lang-picker__item">
+                <button
+                  class="lang-picker__option"
+                  type="button"
+                  role="option"
+                  data-lang="ru"
+                  aria-selected="true"
+                >
+                  RU
+                </button>
+              </li>
+              <li class="lang-picker__item">
+                <button
+                  class="lang-picker__option"
+                  type="button"
+                  role="option"
+                  data-lang="en"
+                  aria-selected="false"
+                >
+                  EN
+                </button>
+              </li>
+              <li class="lang-picker__item">
+                <button
+                  class="lang-picker__option"
+                  type="button"
+                  role="option"
+                  data-lang="ar"
+                  aria-selected="false"
+                >
+                  AR
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="toggle">
+            <button
+              id="themeToggler"
+              class="toggle__btn theme-toggler"
+              type="button"
+              aria-label="Переключить цветовую тему"
+            >
+              <i class="toggle__icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="error-page" aria-labelledby="error-404-title">
+        <div class="container error-page__container">
+          <div class="error-page__code" aria-hidden="true">404</div>
+
+          <div class="error-page__content">
+            <h1 id="error-404-title" class="error-page__title">
+              Страница не&nbsp;найдена
+            </h1>
+
+            <p class="error-page__description">
+              Возможно, она была удалена, перемещена или вы перешли по неверной
+              ссылке.
+            </p>
+
+            <div class="error-page__links">
+              <a href="/" class="link">На главную</a>
+              <span class="error-page__separator">|</span>
+              <a href="mailto:info@startcolor.ru" class="link">
+                Написать в поддержку
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container grid-container">
+        <div class="footer__content footer__content--col">
+          <a class="logo" href="/">
+            <picture>
+              <source srcset="/src/assets/images/logo.svg" media="" />
+              <img
+                decoding="async"
+                src="/src/assets/images/logo.svg"
+                alt="StartColor"
+              />
+            </picture>
+          </a>
+          <p class="logo-slogan">Технологии умного цвета</p>
+
+          <a href="https://www.2stn.ru/" class="link">
+            Группа Компаний "Два Стахановца"
+          </a>
+        </div>
+
+        <nav
+          class="footer__content footer__content--col"
+          aria-label="Навигация по продукту"
+        >
+          <h4 class="footer__content-title">Продукт</h4>
+          <a class="link link--muted" href="/#for-whom">Для колористов</a>
+          <a class="link link--muted" href="/#for-whom">Для руководителей</a>
+          <a class="link link--muted" href="/#tariffs">Тарифы</a>
+        </nav>
+
+        <nav class="footer__content footer__content--col" aria-label="Ресурсы">
+          <h4 class="footer__content-title">Ресурсы</h4>
+          <a class="link link--muted" href="/#knowledge">Документация</a>
+          <a class="link link--muted" href="/#news">Новости</a>
+          <a class="link link--muted" href="/about.html">О компании</a>
+        </nav>
+
+        <address class="footer__content footer__content--col">
+          <h4 class="footer__content-title">Контакты</h4>
+          <a class="link link--muted" href="mailto:info@startcolor.ru">
+            <i class="icon icon--sm"
+              ><svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.3334 2.66699H2.66671C1.93033 2.66699 1.33337 3.26395 1.33337 4.00033V12.0003C1.33337 12.7367 1.93033 13.3337 2.66671 13.3337H13.3334C14.0698 13.3337 14.6667 12.7367 14.6667 12.0003V4.00033C14.6667 3.26395 14.0698 2.66699 13.3334 2.66699Z"
+                  stroke="#6B7280"
+                  stroke-width="1.33333"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M14.6667 4.66699L8.68671 8.46699C8.48089 8.59594 8.24292 8.66433 8.00004 8.66433C7.75716 8.66433 7.51919 8.59594 7.31337 8.46699L1.33337 4.66699"
+                  stroke="#6B7280"
+                  stroke-width="1.33333"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </i>
+            info@startcolor.ru
+          </a>
+          <a class="link link--muted" href="tel:+79000297729">
+            <i class="icon icon--sm"
+              ><svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_277_3036)">
+                  <path
+                    d="M14.6667 11.2797V13.2797C14.6675 13.4654 14.6294 13.6492 14.555 13.8193C14.4807 13.9894 14.3716 14.1421 14.2348 14.2676C14.0979 14.3932 13.9364 14.4887 13.7605 14.5482C13.5847 14.6077 13.3983 14.6298 13.2134 14.6131C11.1619 14.3902 9.19137 13.6892 7.46004 12.5664C5.84926 11.5428 4.48359 10.1772 3.46004 8.56641C2.33336 6.82721 1.6322 4.84707 1.41337 2.78641C1.39671 2.60205 1.41862 2.41625 1.4777 2.24082C1.53679 2.0654 1.63175 1.9042 1.75655 1.76749C1.88134 1.63077 2.03324 1.52155 2.20256 1.44675C2.37189 1.37196 2.55493 1.33325 2.74004 1.33307H4.74004C5.06357 1.32989 5.37723 1.44446 5.62254 1.65543C5.86786 1.8664 6.02809 2.15937 6.07337 2.47974C6.15779 3.11978 6.31434 3.74822 6.54004 4.35307C6.62973 4.59169 6.64915 4.85102 6.59597 5.10033C6.5428 5.34964 6.41928 5.57848 6.24004 5.75974L5.39337 6.60641C6.34241 8.27544 7.72434 9.65737 9.39337 10.6064L10.24 9.75974C10.4213 9.5805 10.6501 9.45697 10.8994 9.4038C11.1488 9.35063 11.4081 9.37004 11.6467 9.45974C12.2516 9.68544 12.88 9.84199 13.52 9.92641C13.8439 9.97209 14.1396 10.1352 14.3511 10.3847C14.5625 10.6343 14.6748 10.9528 14.6667 11.2797Z"
+                    stroke="#6B7280"
+                    stroke-width="1.33333"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_277_3036">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </i>
+            +7 900 029 77 29
+          </a>
+        </address>
+
+        <div class="footer__agreements">
+          <a class="link" href="/privacy.html"> Политика конфиденциальности </a>
+          <a class="link" href="/agreement.html">
+            Пользовательское соглашение
+          </a>
+        </div>
+
+        <div class="footer__copyright">
+          &copy; 2026 StartColor. Все права защищены.
+        </div>
+      </div>
+    </footer>
+      <script type="module" src="/src/scripts/pages/error-page.js" defer></script>
+  </body>
+</html>

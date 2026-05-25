@@ -1,0 +1,50 @@
+/* Link */
+.link {
+  cursor: pointer;
+  font-size: var(--link-font-sz);
+  font-family: var(--button-font-fm);
+  display: inline-flex;
+  background-image: var(--brand-gradient);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: var(--link-clr);
+  transition:
+    color 0.3s ease,
+    -webkit-text-fill-color 0.3s ease;
+  color: var(--link-clr);
+  font-weight: var(--font-wgt-reg);
+  text-decoration: underline;
+  text-underline-offset: var(--link-und-offset);
+
+  &:hover {
+    color: var(--transparent);
+    -webkit-text-fill-color: transparent;
+  }
+}
+.link--icon-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--link-icon-btn-sz);
+  height: var(--link-icon-btn-sz);
+  text-decoration: none;
+  line-height: 1;
+  /* background: none;
+  -webkit-text-fill-color: initial;
+  color: var(--link-clr); */
+}
+.link--icon-btn .link-icon-fill {
+  transition: opacity 0.3s ease;
+  fill: var(--link-clr);
+}
+.link--icon-btn:hover .link-icon-fill {
+  opacity: 0;
+}
+.link--muted {
+  color: var(--font-clr-muted);
+  -webkit-text-fill-color: var(--font-clr-muted);
+  text-decoration: none;
+}
+

@@ -1,0 +1,50 @@
+/* Download Card */
+.download-card {
+  justify-content: space-between;
+
+  .card__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--card-spacing);
+    position: relative;
+  }
+
+  .card__title {
+    display: flex;
+  }
+
+  .card__subtitle {
+    font-weight: var(--font-wgt-reg);
+    color: var(--font-clr-body);
+  }
+
+  .accordion--mobile {
+    padding-top: var(--card-pad-fixed);
+    padding-bottom: var(--card-pad-fixed);
+  }
+
+  .accordion--open {
+    .accordion__body {
+      padding-top: var(--card-pad-fixed);
+    }
+  }
+
+  .accordion__title {
+    display: flex;
+    flex-direction: column;
+    gap: var(--card-spacing);
+    margin-inline-start: 0;
+  }
+  .card__actions {
+    padding: var(--card-pad-fixed);
+  }
+
+  @media (min-width: 992px) {
+    .accordion--mobile {
+      padding: 0;
+    }
+    .card__actions {
+      padding: var(--card-spacing) 0 0 0;
+    }
+  }
+}

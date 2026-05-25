@@ -1,0 +1,24 @@
+/* Chip */
+.chip {
+  font-size: var(--chip-font-sz);
+  border-radius: var(--chip-border-rad);
+  background-color: var(--chip-bg);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--icon-spacing);
+  color: var(--brand);
+  padding: 1px 10px;
+}
+.chip__icon {
+  width: var(--icon-sz-sm);
+  height: var(--icon-sz-sm);
+
+  > svg {
+    width: var(--icon-sz-sm);
+    height: var(--icon-sz-sm);
+
+    path {
+      stroke: var(--brand);
+    }
+  }
+}

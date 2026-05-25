@@ -1,0 +1,58 @@
+.toggle {
+  cursor: pointer;
+  display: inline-flex;
+  gap: var(--icon-spacing);
+}
+.toggle__label {
+  font-size: var(--button-font-sz);
+  color: var(--font-clr-body);
+}
+.toggle__btn {
+  background-color: var(--button-clr);
+  position: relative;
+  width: 56px;
+  height: 28px;
+  border-color: var(--transparent);
+  border-width: var(--border-w);
+  border-style: var(--border-st);
+  transition: all 0.3s ease-in-out;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: var(--button-border-rad);
+
+  &.theme-toggler {
+    > .toggle__icon {
+      background-color: transparent !important;
+      background-image: url("/src/assets/icons/sun.svg");
+    }
+
+    &.toggle__btn--active {
+      > .toggle__icon {
+        background-image: url("/src/assets/icons/dark_mode.svg");
+      }
+    }
+  }
+}
+.toggle__icon {
+  position: absolute;
+  left: 4px;
+  top: 3px;
+  border-radius: 50%;
+  width: 21px;
+  height: 21px;
+  background-color: var(--font-clr-on-brand);
+  transition: all 0.3s ease-in-out;
+}
+.toggle__btn--active {
+  border-color: var(--button-clr);
+  background-color: var(--white);
+
+  > .toggle__icon {
+    transform: translateX(27px);
+    background-color: var(--button-clr);
+  }
+}

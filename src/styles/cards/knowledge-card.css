@@ -1,0 +1,15 @@
+/* Knowledge Card */
+.knowledge-card {
+  height: fit-content;
+
+  .card__title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-weight: var(--font-wgt-bold);
+  }
+
+  .card__actions {
+    padding-top: 0;
+  }
+}

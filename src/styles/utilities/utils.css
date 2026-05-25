@@ -1,0 +1,139 @@
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: var(--icon-sz-default);
+  min-height: var(--icon-sz-default);
+}
+
+.icon--sm {
+  min-width: var(--icon-sz-sm);
+  min-height: var(--icon-sz-sm);
+  margin-inline-end: var(--icon-spacing);
+}
+
+/* Inputs */
+.input {
+  width: auto;
+}
+
+.checkbox {
+  width: auto;
+}
+
+.radio {
+  width: auto;
+}
+
+.select {
+  width: auto;
+}
+
+
+/* Chevron */
+.chevron {
+  min-width: var(--icon-sz-sm);
+  min-height: var(--icon-sz-sm);
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: currentColor;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: 0;
+
+  &.chevron--left {
+    mask-image: url("/src/assets/icons/chevron_left.svg");
+  }
+
+  &.chevron--right {
+    mask-image: url("/src/assets/icons/chevron_right.svg");
+  }
+
+  &.chevron--down {
+    mask-image: url("/src/assets/icons/chevron_down.svg");
+  }
+
+  &.chevron--up {
+    mask-image: url("/src/assets/icons/chevron_down.svg");
+    transform: rotate(180deg);
+  }
+
+  &.chevron--sm {
+    min-width: 14px;
+    min-height: 14px;
+  }
+}
+
+/* Utility classes */
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--container-gap);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(var(--gap-default), calc(2vw - 1rem), var(--gap-lg));
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.brand {
+  .chevron {
+    background-color: var(--brand);
+  }
+
+  svg {
+    path {
+      stroke: var(--brand);
+    }
+  }
+
+  li::before {
+    background-color: var(--brand);
+  }
+}
+.brand-soft {
+  .chevron {
+    background-color: var(--brand-soft);
+  }
+
+  svg {
+    path {
+      stroke: var(--brand-soft);
+    }
+  }
+
+  li::before {
+    background-color: var(--brand-soft);
+  }
+}
+.brand-strong {
+  .chevron {
+    background-color: var(--brand-strong);
+  }
+
+  svg {
+    path {
+      stroke: var(--brand-strong);
+    }
+  }
+
+  li::before {
+    background-color: var(--brand-strong);
+  }
+}
+
+
+/* Utils */
+.text-muted {
+  color: var(--font-clr-muted);
+  font-size: var(--font-sz-sm);
+}

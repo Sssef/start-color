@@ -1,0 +1,10 @@
+.section-news {
+  .sticker {
+    height: fit-content;
+
+    .link {
+      align-self: flex-end;
+      margin-inline-end: var(--gap-default);
+    }
+  }
+}

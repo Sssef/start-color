@@ -1,0 +1,181 @@
+/* Card */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-spacing);
+  border-radius: var(--card-border-rad);
+  background: var(--card-bg);
+  box-shadow: var(--card-box-shd);
+  height: 100%;
+  padding: var(--card-pad);
+  break-inside: avoid;
+
+  .chevron {
+    align-self: baseline;
+    position: relative;
+    top: 13px;
+  }
+}
+.card--mobile-paddingless {
+  padding: 0;
+  gap: 0;
+
+  .card__body {
+    gap: 0;
+  }
+
+  @media (min-width: 992px) {
+    .card__body {
+      gap: var(--gap-default);
+    }
+
+    padding: var(--card-pad);
+  }
+}
+.card--accent {
+  box-shadow: var(--card-box-shd-accent);
+  z-index: 2;
+}
+.card__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-spacing);
+}
+.card__title {
+  color: var(--font-clr-heading);
+  font-family: var(--font-fm-heading);
+  display: flex;
+  gap: calc(var(--icon-spacing) * 2);
+  font-size: var(--font-sz-card-title);
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  line-height: var(--line-h-lg);
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.card__title-text {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+}
+.card__subtitle {
+  color: var(--grey-200);
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5; /* Количество строк, после которых появится многоточие */
+  line-clamp: 5;
+  overflow: hidden;
+}
+.card__icon {
+  display: block;
+  width: var(--icon-sz-lg);
+  height: var(--icon-sz-lg);
+}
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-default);
+}
+
+.card__footer {
+  margin-top: auto;
+}
+.card__text {
+  font-size: var(--font-sz-body);
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 20; /* Количество строк, после которых появится многоточие */
+  line-clamp: 20;
+  overflow: hidden;
+  color: var(--font-clr-body);
+}
+.card__media {
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  border-top-left-radius: var(--border-rad);
+  border-top-right-radius: var(--border-rad);
+
+  video,
+  picture,
+  img {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    object-fit: cover;
+  }
+}
+.card__actions {
+  display: flex;
+  gap: var(--card-spacing);
+  padding-top: 10px;
+}
+.card__requirement {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--gap-xs);
+  padding-inline-start: 0;
+}
+.card__requirement-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 1rem;
+
+  > :first-child {
+    font-weight: var(--font-wgt-reg);
+  }
+  > :last-child {
+    font-weight: var(--font-wgt-reg);
+    color: var(--font-clr-muted);
+  }
+}
+.card__date {
+  font-size: var(--font-sz-xs);
+  color: var(--font-clr-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--icon-spacing);
+
+  &:before {
+    display: block;
+    content: "";
+    width: var(--icon-sz-sm);
+    height: var(--icon-sz-sm);
+    background: url("/src/assets/icons/calendar.svg") no-repeat center;
+  }
+}
+.card__body--grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--gap-lg);
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card__strong-text {
+  font-weight: 700;
+  display: flex;
+  gap: 10px;
+}
+.card__body-part {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.card__body-part--full {
+  grid-area: auto / 1;
+
+  @media (min-width: 768px) {
+    grid-area: auto / span 2;
+  }
+}

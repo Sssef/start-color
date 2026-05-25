@@ -1,0 +1,307 @@
+/* TODO: Добавить clamp, min, minmax, rem, columns etc. */
+:root {
+  color-scheme: light;
+  /* Brand color scheme */
+  --brand: #0075c9;
+  --brand-strong: #003b71;
+  --brand-soft: #54c8e8;
+
+  --brand-accent: #2581de;
+  --brand-plain: #374356;
+  --brand-surface: #ffffff;
+
+  --brand-gradient: linear-gradient(
+    135deg,
+    var(--brand) 0%,
+    var(--brand-soft) 100%
+  );
+
+  /* Helper colors */
+  --white: #ffffff;
+  --black: #000000;
+  --transparent: transparent;
+
+  --blue-100: #117ecd;
+  --blue-200: #3994d6;
+  --blue-300: #52a1db;
+  --blue-400: #66acdf;
+  --blue-500: #f2f8fc;
+  --blue-600: #e5edf7;
+  --blue-700: #14304f;
+  --blue-800: #102742;
+  --blue-900: #d6e4ff;
+
+  --grey-100: #6b7280;
+  --grey-200: #7c89a1;
+  --grey-300: #e4e5e9;
+  --grey-400: #ecedf0;
+  --grey-500: #f3f4f7;
+  --grey-600: #f9f9fb;
+  --grey-700: #2f3d55;
+  --grey-800: #3c4d69;
+  --grey-900: #1b2a42;
+  --grey-950: #15243a;
+
+  --dark-100: #0b1220;
+  --dark-200: #101a2d;
+  --dark-300: #121d31;
+  --dark-400: #16243d;
+  --dark-500: #d5deeb;
+  --dark-600: #98a8c6;
+  --dark-700: #8a99b6;
+
+  /* Text */
+  --font-clr-heading: var(--brand-strong);
+  --font-clr-body: var(--brand-plain);
+
+  --font-clr-muted: #7c89a1;
+  --font-clr-subtle: #6b7280;
+
+  --font-clr-placeholder: #7c89a1;
+  --font-clr-on-brand: var(--white);
+
+  /* Surfaces */
+  --bg-page: var(--white);
+  --bg-header: var(--white);
+  --bg-elevated: var(--white);
+  --bg-muted: var(--blue-600);
+
+  /* Borders */
+  --border-w: 0.0625rem;
+  --border-st: solid;
+  --border-rad: 1.25rem;
+
+  --border-clr: var(--grey-100);
+
+  /* Text sizes */
+  /* must be min 32px and max 50px */
+  --font-sz-title: clamp(2rem, calc(3.5vw - 1rem), 3.125rem);
+  /* must be min 20px and max 22px */
+  --font-sz-subtitle: clamp(1.125rem, calc(1.5vw - 1rem), 1.25rem);
+  /* must be min 32px and max 48px */
+  --font-sz-section-title: clamp(2rem, calc(3.5vw - 1rem), 3rem);
+  --font-sz-section-subtitle: clamp(1.25rem, calc(1.5vw - 1rem), 1.375rem);
+
+  --font-sz-doc-title: clamp(1.5rem, calc(2vw - 1rem), 2.25rem);
+
+  /* min 16px & max 18px */
+  --font-sz-body: clamp(1rem, calc(1.5vw - 1rem), 1.125rem);
+
+  --font-sz-card-title: clamp(1.3125rem, calc(2vw - 1rem), 1.5rem);
+
+  --font-sz-xl: 1.5rem;
+  --font-sz-lg: 1.25rem;
+  --font-sz-md: 1.125rem;
+  --font-sz-sm: 1rem;
+  --font-sz-xs: 0.875rem;
+
+  --font-sz-xxs: 0.75rem;
+  --font-sz-xxxs: 0.625rem;
+
+  --font-wgt-reg: 400;
+  --font-wgt-semi: 600;
+  --font-wgt-bold: 700;
+
+  --font-fm-heading: "Comfortaa", system-ui, sans-serif;
+  --font-fm-body: "Open Sans", system-ui, sans-serif;
+
+  --line-h-default: 120%;
+  --line-h-lg: 140%;
+
+  /* Spacing */
+  --gap-xl: 2.5rem;
+  --gap-lg: 2rem;
+  --gap-default: 1.5rem;
+  --gap-md: 1.25rem;
+  --gap-sm: 1rem;
+  --gap-xs: 0.75rem;
+  --gap-xxs: 0.5rem;
+
+  --section-gap: 5rem;
+  --block-gap: 1rem;
+  --list-gap: 0.625rem;
+
+  --grid-gap-lg: 2.5rem;
+  --grid-gap-md: 2.5rem;
+
+  /* Box-shadows */
+  --box-shd: 0 0.25rem 0.25rem 0 var(--blue-600);
+
+  /* Containers */
+  --container-w: 100%;
+  --container-pad: 2.1875rem 0.625rem;
+  --container-gap: clamp(1.875rem, 5vw, 5rem);
+
+  --doc-container-w: 100%;
+  --doc-container-pad: 0.625rem;
+  --doc-container-gap: 1.875rem;
+
+  --container-columns: 1;
+
+  /* Desing elements */
+  /* Card */
+  --card-pad: clamp(0.9375rem, calc(2vw - 1rem), 2.5rem);
+  --card-pad-fixed: 1.11rem;
+
+  --card-border-rad: 1.25rem;
+  --card-bg: var(--white);
+  --card-spacing: var(--gap-default);
+
+  --card-box-shd:
+    0 0 0 0.03125rem var(--grey-300), 0 0 0 0.0625rem var(--grey-400),
+    0 0 0 0.21875rem var(--grey-600), 0 0 0 0.25rem var(--grey-500);
+
+  --card-box-shd-accent:
+    0 0 0 0.03125rem var(--blue-300), 0 0 0 0.0625rem var(--blue-400),
+    0 0 0 0.21875rem var(--blue-600), 0 0 0 0.25rem var(--blue-500);
+
+  /* Chip */
+  --chip-border-rad: 0.75rem;
+  --chip-font-sz: 0.75rem;
+  --chip-bg: var(--blue-500);
+
+  /* Nav */
+  --nav-font-sz: 1.125rem;
+  --nav-gap: var(--gap-lg);
+  --nav-clr: var(--font-clr-body);
+  --nav-clr-hover: var(--brand-gradient);
+  --nav-clr-active: var(--brand-accent);
+
+  /* Actions */
+  /* Button */
+  --button-font-fm: var(--font-fm-body);
+  --button-font-sz: 0.75rem;
+  --button-border-rad: 0.75rem;
+  --button-h: 2.875rem;
+  --button-pad: 0 1rem;
+
+  --button-clr: var(--brand);
+  --button-clr-hover: var(--brand-gradient);
+  --button-clr-active: var(--brand-accent);
+
+  --button-plain-clr: var(--font-clr-on-brand);
+
+  --button-clr-disabled: var(--grey-100);
+
+  /* Link */
+  --link-font-sz: 0.75rem;
+  --link-und-offset: 15%;
+
+  --link-clr: var(--brand);
+  --link-clr-hover: var(--brand-gradient);
+  --link-clr-active: var(--brand-accent);
+  --link-icon-btn-sz: 2.5rem;
+
+  /* Icon */
+  --icon-sz-fixed: 2rem;
+  --icon-sz-lg: 2.125rem;
+  --icon-sz-default: 1.5rem;
+  --icon-sz-sm: 1rem;
+
+  --icon-spacing: 0.375rem;
+
+  --sticker-w: 550px;
+
+  /* Accordion */
+  --accordion-h: 2.875rem;
+  --accordion-font-sz: var(--font-sz-body);
+  --accordion-font-fm: var(--font-fm-body);
+
+  /* Input */
+  --input-h: 2.875rem;
+  --input-font-sz: 1rem;
+  --input-pad: 0.625rem 1.25rem;
+
+  /* Header */
+  --header-h: 3.125rem;
+
+  --mobile-burger: 1.5rem;
+
+  --header-actions-clr: var(--brand);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --brand-plain: var(--blue-600);
+  --brand-surface: var(--grey-950);
+
+  --font-clr-heading: var(--blue-900);
+  --font-clr-body: var(--dark-500);
+  --font-clr-muted: var(--dark-600);
+  --font-clr-subtle: var(--dark-700);
+
+  --bg-page: var(--dark-100);
+  --bg-header: var(--dark-200);
+  --bg-elevated: var(--dark-300);
+  --bg-muted: var(--dark-400);
+
+  --card-bg: var(--dark-300);
+  --border-clr: var(--grey-800);
+
+  --grey-300: var(--grey-700);
+  --grey-400: var(--grey-800);
+  --grey-500: var(--grey-900);
+  --grey-600: var(--grey-950);
+
+  --blue-500: var(--blue-700);
+  --blue-600: var(--blue-800);
+
+  --box-shd: 0 0.25rem 0.75rem 0 rgb(0 0 0 / 32%);
+
+  --header-actions-clr: var(--white);
+}
+
+/* Media */
+@media screen and (min-width: 768px) {
+  :root {
+    --container-gap: 3.125rem 0;
+    --nav-font-sz: 0.875rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  :root {
+    --card-pad: 1.5rem;
+
+    --container-columns: 2;
+    --container-pad: 5rem 2.25rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  :root {
+    --grid-gap-lg: 3.75rem;
+    --grid-gap-md: 2.5rem;
+
+    /* Containers */
+    --container-w: 75rem;
+    --container-pad: 5rem 0;
+
+    --doc-container-w: 48.4375rem;
+    --doc-container-pad: 5rem 0;
+    --doc-container-gap: 5rem;
+
+    /* Header */
+    --header-h: 4.125rem;
+
+    /* Card */
+    --card-pad: 2.5rem;
+
+    /* Actions */
+    --button-font-sz: 0.875rem;
+    --button-border-rad: 1rem;
+    --button-h: 3.125rem;
+    --button-pad: 0 1.75rem;
+
+    --link-font-sz: 0.875rem;
+
+    --icon-default: 1.625rem;
+    --icon-lg: 2rem;
+
+    --accordion-h: 3.125rem;
+
+    --input-h: 3.125rem;
+    --input-font-sz: 1.125rem;
+  }
+}

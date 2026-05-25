@@ -1,0 +1,136 @@
+/* Hero section */
+.hero {
+  width: 100%;
+}
+.hero__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--container-gap);
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(var(--container-columns), minmax(0, 1fr));
+    gap: var(--section-gap);
+  }
+}
+.hero__description {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-default);
+  align-items: flex-start;
+}
+.hero .hero__chip {
+  display: flex;
+  background-color: var(--transparent);
+
+  @media (min-width: 768px) {
+    background-color: var(--chip-bg);
+  }
+}
+.hero__title {
+  font-family: var(--font-fm-heading);
+  font-size: var(--font-sz-title);
+  color: var(--font-clr-body);
+  line-height: var(--line-h-default);
+  font-weight: var(--font-wgt-bold);
+  overflow-wrap: anywhere;
+
+  > span {
+    background-image: var(--brand-gradient);
+    background-clip: text;
+    color: var(--transparent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 275% auto;
+    animation: heroTextShine 2s ease-in-out infinite alternate;
+  }
+}
+
+.hero__subtitle {
+  font-family: var(--font-fm-heading);
+  font-size: var(--font-sz-subtitle);
+  color: var(--font-clr-muted);
+  line-height: var(--line-h-lg);
+  font-weight: var(--font-wgt-reg);
+}
+.hero__actions {
+  margin-top: var(--gap-md);
+  gap: var(--gap-default);
+  display: flex;
+}
+.hero__art {
+  position: relative;
+}
+.hero__img {
+  max-width: var(--sticker-w);
+  margin: 0 auto;
+}
+.hero__counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-elevated);
+  border-radius: var(--border-rad);
+  box-shadow: var(--box-shd);
+  padding: 1rem;
+  z-index: 2;
+  max-width: 80%;
+  margin: -35px auto 0;
+  position: relative;
+}
+.ai-counter {
+  font-family: var(--font-fm-heading);
+  font-size: 2.25rem;
+  font-weight: var(--font-wgt-bold);
+  line-height: var(--line-h-lg);
+  background-image: var(--brand-gradient);
+  background-clip: text;
+  color: var(--transparent);
+}
+.ai-counter-description {
+  font-family: var(--font-fm-body);
+  font-size: 0.875rem;
+  font-weight: var(--font-wgt-reg);
+  background-image: var(--brand-gradient);
+  background-clip: text;
+  color: var(--transparent);
+  text-transform: uppercase;
+}
+
+@media (min-width: 992px) {
+  .hero__counter {
+    position: relative;
+    top: initial;
+    left: initial;
+    min-width: 65%;
+    margin: -55px auto 0;
+  }
+  .hero__img {
+    min-width: 550px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero {
+    padding: 0 20px;
+  }
+  .hero__counter {
+    min-width: 300px;
+    max-width: 330px;
+  }
+  .hero__img {
+    min-width: 550px;
+  }
+}
+
+@media (min-width: 1660px) {
+  .hero__counter {
+    position: absolute;
+    top: 45%;
+    left: 75%;
+  }
+  .hero__img {
+    min-width: 750px;
+  }
+}

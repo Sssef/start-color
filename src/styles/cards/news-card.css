@@ -1,0 +1,22 @@
+/* News Card */
+.news-card {
+  gap: 16px;
+  padding: var(--card-pad-fixed);
+
+  .card__header {
+    gap: 12px;
+  }
+
+  .card__title {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    overflow: hidden;
+  }
+  .card__text {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+}

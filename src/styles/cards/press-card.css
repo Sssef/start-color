@@ -1,0 +1,43 @@
+/* Press Card */
+.press-card {
+  height: 100%;
+  position: relative;
+  padding: 0;
+  gap: 0;
+
+  a {
+    text-decoration: none;
+  }
+
+  .card__media {
+    video,
+    picture,
+    img {
+      height: 200px;
+    }
+  }
+
+  .card__body {
+    padding: var(--card-pad-fixed);
+  }
+
+  .card__text {
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    color: var(--font-clr-body);
+  }
+  .card__title {
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    line-height: var(--line-h-default);
+  }
+
+  &:hover {
+    a {
+      .card__title {
+        text-decoration: underline;
+        text-underline-offset: var(--link-und-offset);
+      }
+    }
+  }
+}

@@ -1,0 +1,2436 @@
+<!doctype html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="StartColor — ИИ-система для профессиональной колеровки."
+    />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="StartColor" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;700&family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+    />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <title>StartColor</title>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <linearGradient id="grad-brand" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="var(--brand)" />
+          <stop offset="100%" stop-color="var(--brand-soft)" />
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <header class="header">
+      <div class="header__row">
+        <div class="header__menu-toggle">
+          <button
+            id="open-sidebar-button"
+            aria-label="open sidebar"
+            aria-expanded="false"
+            aria-controls="navbar"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="40px"
+              viewBox="0 -960 960 960"
+              width="40px"
+              fill="#0075c9"
+            >
+              <path
+                d="M165.13-254.62q-10.68 0-17.9-7.26-7.23-7.26-7.23-18t7.23-17.86q7.22-7.13 17.9-7.13h629.74q10.68 0 17.9 7.26 7.23 7.26 7.23 18t-7.23 17.87q-7.22 7.12-17.9 7.12H165.13Zm0-200.25q-10.68 0-17.9-7.27-7.23-7.26-7.23-17.99 0-10.74 7.23-17.87 7.22-7.13 17.9-7.13h629.74q10.68 0 17.9 7.27 7.23 7.26 7.23 17.99 0 10.74-7.23 17.87-7.22 7.13-17.9 7.13H165.13Zm0-200.26q-10.68 0-17.9-7.26-7.23-7.26-7.23-18t7.23-17.87q7.22-7.12 17.9-7.12h629.74q10.68 0 17.9 7.26 7.23 7.26 7.23 18t-7.23 17.86q-7.22 7.13-17.9 7.13H165.13Z"
+              />
+            </svg>
+          </button>
+
+          <button id="close-sidebar-button" aria-label="close sidebar">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="40px"
+              viewBox="0 -960 960 960"
+              width="40px"
+              fill="#0075c9"
+            >
+              <path
+                d="m480-444.62-209.69 209.7q-7.23 7.23-17.5 7.42-10.27.19-17.89-7.42-7.61-7.62-7.61-17.7 0-10.07 7.61-17.69L444.62-480l-209.7-209.69q-7.23-7.23-7.42-17.5-.19-10.27 7.42-17.89 7.62-7.61 17.7-7.61 10.07 0 17.69 7.61L480-515.38l209.69-209.7q7.23-7.23 17.5-7.42 10.27-.19 17.89 7.42 7.61 7.62 7.61 17.7 0 10.07-7.61 17.69L515.38-480l209.7 209.69q7.23 7.23 7.42 17.5.19 10.27-7.42 17.89-7.62 7.61-17.7 7.61-10.07 0-17.69-7.61L480-444.62Z"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <nav id="navbar" class="navbar">
+          <ul class="navbar__list">
+            <li class="navbar__item">
+              <a class="navbar__link" href="/about.html">О компании</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="/#tools">Оборудование</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="/#analytics">ПО и аналитика</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="/#tariffs">Тарифы</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="/#press">Пресса о нас</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="/about.html#contacts">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div id="overlay" aria-hidden="true"></div>
+
+        <div class="header__toolbar">
+          <div class="lang-picker" id="languagePicker">
+            <button
+              id="languagePickerButton"
+              class="lang-picker__trigger"
+              type="button"
+              aria-label="Выбор языка"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              aria-controls="languagePickerList"
+            >
+              <i class="lang-picker__globe" aria-hidden="true"> </i>
+              <span id="languagePickerValue" class="lang-picker__value"
+                >RU</span
+              >
+              <i
+                class="lang-picker__chevron chevron chevron--down chevron--sm"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <ul
+              id="languagePickerList"
+              class="lang-picker__list"
+              role="listbox"
+              aria-label="Язык интерфейса"
+              tabindex="-1"
+              hidden
+            >
+              <li class="lang-picker__item">
+                <button
+                  class="lang-picker__option"
+                  type="button"
+                  role="option"
+                  data-lang="ru"
+                  aria-selected="true"
+                >
+                  RU
+                </button>
+              </li>
+              <li class="lang-picker__item">
+                <button
+                  class="lang-picker__option"
+                  type="button"
+                  role="option"
+                  data-lang="en"
+                  aria-selected="false"
+                >
+                  EN
+                </button>
+              </li>
+              <li class="lang-picker__item">
+                <button
+                  class="lang-picker__option"
+                  type="button"
+                  role="option"
+                  data-lang="ar"
+                  aria-selected="false"
+                >
+                  AR
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="toggle">
+            <button
+              id="themeToggler"
+              class="toggle__btn theme-toggler"
+              type="button"
+              aria-label="Переключить цветовую тему"
+            >
+              <i class="toggle__icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero__content">
+          <div class="hero__description">
+            <p class="hero__chip chip">
+              <i class="chip__icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3.99999 14C3.81076 14.0007 3.62522 13.9476 3.46495 13.847C3.30467 13.7464 3.17623 13.6024 3.09454 13.4317C3.01286 13.261 2.98129 13.0706 3.00349 12.8827C3.0257 12.6948 3.10077 12.517 3.21999 12.37L13.12 2.17004C13.1943 2.08432 13.2955 2.0264 13.407 2.00577C13.5185 1.98515 13.6337 2.00305 13.7337 2.05654C13.8337 2.11004 13.9126 2.19594 13.9573 2.30015C14.0021 2.40436 14.0101 2.52069 13.98 2.63004L12.06 8.65004C12.0034 8.80156 11.9844 8.96456 12.0046 9.12505C12.0248 9.28553 12.0837 9.43872 12.1761 9.57147C12.2685 9.70421 12.3918 9.81256 12.5353 9.8872C12.6788 9.96185 12.8382 10.0006 13 10H20C20.1892 9.9994 20.3748 10.0525 20.535 10.1531C20.6953 10.2537 20.8238 10.3977 20.9054 10.5684C20.9871 10.7391 21.0187 10.9295 20.9965 11.1174C20.9743 11.3053 20.8992 11.4831 20.78 11.63L10.88 21.83C10.8057 21.9158 10.7045 21.9737 10.593 21.9943C10.4815 22.0149 10.3663 21.997 10.2663 21.9435C10.1663 21.89 10.0874 21.8041 10.0427 21.6999C9.99791 21.5957 9.98991 21.4794 10.02 21.37L11.94 15.35C11.9966 15.1985 12.0156 15.0355 11.9954 14.875C11.9752 14.7145 11.9163 14.5614 11.8239 14.4286C11.7315 14.2959 11.6082 14.1875 11.4647 14.1129C11.3212 14.0382 11.1617 13.9995 11 14H3.99999Z"
+                    stroke="#54C8E8"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </i>
+              ИИ-платформа для управления колеровкой цвета автомобиля
+            </p>
+
+            <h1 class="hero__title">
+              StartColor - <span>ИИ-система</span> для профессиональной<br />колеровки
+            </h1>
+
+            <p class="hero__subtitle">
+              Цифровой архив формул, автоматический пересчёт, интеграция с 1С и
+              контроль всех окрасочных линий.
+            </p>
+
+            <div class="hero__actions">
+              <button class="btn btn--default">Подключиться</button>
+              <button class="btn btn--outline">Скачать софт</button>
+            </div>
+          </div>
+
+          <div class="hero__art">
+            <picture class="hero__img">
+              <source srcset="/src/assets/images/hero/main.png" media="" />
+              <img
+                decoding="async"
+                src="/src/assets/images/hero/main.png"
+                alt="Аналитика"
+              />
+            </picture>
+
+            <div class="hero__counter">
+              <output class="ai-counter" role="status" aria-live="polite"
+                >0</output
+              >
+              <p class="ai-counter-description">выполнено заказов с ИИ</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section"
+        id="for-whom"
+        role="region"
+        aria-labelledby="for-whom-title"
+      >
+        <div class="container flex-container">
+          <header class="section__header">
+            <h2 class="section__title" id="for-whom-title">Кому подходит</h2>
+            <p class="section__subtitle">Колорист | Руководитель | Владелец</p>
+          </header>
+
+          <div class="section__content section__content--col">
+            <aside class="sticker" aria-label="Иллюстрация: Руководителю">
+              <figure class="sticker__figure">
+                <picture class="sticker__img">
+                  <source srcset="/src/assets/images/stickers/head.png" media="" />
+                  <img decoding="async" src="/src/assets/images/stickers/head.png" alt="" />
+                </picture>
+                <figcaption class="sticker__surface">
+                  <h3 class="sticker__title">Руководителю</h3>
+                </figcaption>
+              </figure>
+            </aside>
+
+            <div class="card card--mobile-paddingless brand">
+              <div class="accordion accordion--mobile accordion--open">
+                <h3 class="accordion__heading">
+                  <button
+                    class="accordion__toggle"
+                    type="button"
+                    aria-expanded="true"
+                    aria-controls="accordion-panel-1"
+                    id="accordion-btn-1"
+                  >
+                    <i class="accordion__icon" aria-hidden="true">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3 3V19C3 19.5304 3.21071 20.0391 3.58579 20.4142C3.96086 20.7893 4.46957 21 5 21H21"
+                          stroke="#54C8E8"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M18 17V9"
+                          stroke="#54C8E8"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M13 17V5"
+                          stroke="#54C8E8"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8 17V14"
+                          stroke="#54C8E8"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </i>
+                    <span class="accordion__title">
+                      Стандартизация и контроль
+                    </span>
+                    <i class="chevron chevron--down" aria-hidden="true"></i>
+                  </button>
+                </h3>
+                <ul
+                  class="list accordion__body"
+                  id="accordion-panel-1"
+                  role="region"
+                  aria-labelledby="accordion-btn-1"
+                >
+                  <li class="list__item">Интеграция с 1С</li>
+                  <li class="list__item">
+                    Чёткий и отлаженный процесс обработки заказа
+                  </li>
+                  <li class="list__item">Минимизация ошибок персонала</li>
+                </ul>
+              </div>
+
+              <div class="accordion accordion--mobile">
+                <h3 class="accordion__heading">
+                  <button
+                    class="accordion__toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="accordion-panel-2"
+                    id="accordion-btn-2"
+                  >
+                    <i class="accordion__icon" aria-hidden="true">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3.99999 14C3.81076 14.0007 3.62522 13.9476 3.46495 13.847C3.30467 13.7464 3.17623 13.6024 3.09454 13.4317C3.01286 13.261 2.98129 13.0706 3.00349 12.8827C3.0257 12.6948 3.10077 12.517 3.21999 12.37L13.12 2.17004C13.1943 2.08432 13.2955 2.0264 13.407 2.00577C13.5185 1.98515 13.6337 2.00305 13.7337 2.05654C13.8337 2.11004 13.9126 2.19594 13.9573 2.30015C14.0021 2.40436 14.0101 2.52069 13.98 2.63004L12.06 8.65004C12.0034 8.80156 11.9844 8.96456 12.0046 9.12505C12.0248 9.28553 12.0837 9.43872 12.1761 9.57147C12.2685 9.70421 12.3918 9.81256 12.5353 9.8872C12.6788 9.96185 12.8382 10.0006 13 10H20C20.1892 9.9994 20.3748 10.0525 20.535 10.1531C20.6953 10.2537 20.8238 10.3977 20.9054 10.5684C20.9871 10.7391 21.0187 10.9295 20.9965 11.1174C20.9743 11.3053 20.8992 11.4831 20.78 11.63L10.88 21.83C10.8057 21.9158 10.7045 21.9737 10.593 21.9943C10.4815 22.0149 10.3663 21.997 10.2663 21.9435C10.1663 21.89 10.0874 21.8041 10.0427 21.6999C9.99791 21.5957 9.98991 21.4794 10.02 21.37L11.94 15.35C11.9966 15.1985 12.0156 15.0355 11.9954 14.875C11.9752 14.7145 11.9163 14.5614 11.8239 14.4286C11.7315 14.2959 11.6082 14.1875 11.4647 14.1129C11.3212 14.0382 11.1617 13.9995 11 14H3.99999Z"
+                          stroke="#54C8E8"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </i>
+                    <span class="accordion__title">
+                      Рост производительности
+                    </span>
+                    <i class="chevron chevron--down" aria-hidden="true"></i>
+                  </button>
+                </h3>
+
+                <ul
+                  class="list accordion__body"
+                  id="accordion-panel-2"
+                  role="region"
+                  aria-labelledby="accordion-btn-2"
+                >
+                  <li class="list__item">
+                    Повторная продажа ранее выполненных заказов
+                  </li>
+                  <li class="list__item">Повышение скорости колеровки</li>
+                  <li class="list__item">Мягкий запуск новичков в профессию</li>
+                </ul>
+              </div>
+
+              <div class="accordion accordion--mobile">
+                <h3 class="accordion__heading">
+                  <button
+                    class="accordion__toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="accordion-panel-3"
+                    id="accordion-btn-3"
+                  >
+                    <i class="accordion__icon" aria-hidden="true">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M22 12H19.52C19.083 11.9991 18.6577 12.1413 18.3091 12.405C17.9606 12.6686 17.708 13.0392 17.59 13.46L15.24 21.82C15.2249 21.8719 15.1933 21.9175 15.15 21.95C15.1067 21.9825 15.0541 22 15 22C14.9459 22 14.8933 21.9825 14.85 21.95C14.8067 21.9175 14.7751 21.8719 14.76 21.82L9.24 2.18C9.22485 2.12807 9.19327 2.08246 9.15 2.05C9.10673 2.01754 9.05409 2 9 2C8.94591 2 8.89327 2.01754 8.85 2.05C8.80673 2.08246 8.77515 2.12807 8.76 2.18L6.41 10.54C6.29246 10.9592 6.04138 11.3285 5.69486 11.592C5.34835 11.8555 4.92532 11.9988 4.49 12H2"
+                          stroke="#54C8E8"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </i>
+                    <span class="accordion__title">
+                      Контроль в реальном времени
+                    </span>
+                    <i class="chevron chevron--down" aria-hidden="true"></i>
+                  </button>
+                </h3>
+                <ul
+                  class="list accordion__body"
+                  id="accordion-panel-3"
+                  role="region"
+                  aria-labelledby="accordion-btn-3"
+                >
+                  <li class="list__item">Мониторинг всех колерных</li>
+                  <li class="list__item">
+                    Централизованное управление заказами
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="section__content section__content--col section__content--reverse"
+          >
+            <aside class="sticker" aria-label="Иллюстрация: Колористу">
+              <figure class="sticker__figure">
+                <picture class="sticker__img">
+                  <source srcset="/src/assets/images/stickers/colorist.png" media="" />
+                  <img
+                    decoding="async"
+                    src="/src/assets/images/stickers/colorist.png"
+                    alt=""
+                  />
+                </picture>
+                <figcaption class="sticker__surface">
+                  <h3 class="sticker__title">Колористу</h3>
+                </figcaption>
+              </figure>
+            </aside>
+
+            <div class="card card--mobile-paddingless brand-soft">
+              <div class="card__body">
+                <div class="accordion accordion--mobile accordion--open">
+                  <h3 class="accordion__heading">
+                    <button
+                      class="accordion__toggle"
+                      type="button"
+                      aria-expanded="true"
+                      aria-controls="accordion-panel-4"
+                      id="accordion-btn-4"
+                    >
+                      <i class="accordion__icon" aria-hidden="true">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 8C16.9706 8 21 6.65685 21 5C21 3.34315 16.9706 2 12 2C7.02944 2 3 3.34315 3 5C3 6.65685 7.02944 8 12 8Z"
+                            stroke="#0075C9"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M3 5V19C3 19.7956 3.94821 20.5587 5.63604 21.1213C7.32387 21.6839 9.61305 22 12 22C14.3869 22 16.6761 21.6839 18.364 21.1213C20.0518 20.5587 21 19.7956 21 19V5"
+                            stroke="#0075C9"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M3 12C3 12.7956 3.94821 13.5587 5.63604 14.1213C7.32387 14.6839 9.61305 15 12 15C14.3869 15 16.6761 14.6839 18.364 14.1213C20.0518 13.5587 21 12.7956 21 12"
+                            stroke="#0075C9"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </i>
+                      <span class="accordion__title">
+                        Цифровой архив формул
+                      </span>
+                      <i class="chevron chevron--down" aria-hidden="true"></i>
+                    </button>
+                  </h3>
+                  <ul
+                    class="list accordion__body"
+                    id="accordion-panel-4"
+                    role="region"
+                    aria-labelledby="accordion-btn-4"
+                  >
+                    <li class="list__item">
+                      Единая база всех выкрасов и корректировок
+                    </li>
+                    <li class="list__item">
+                      Мгновенный пересчёт на нужный вес
+                    </li>
+                    <li class="list__item">
+                      Фиксация отклонений и повторных выкрасов
+                    </li>
+                    <li class="list__item">
+                      Свобода редактирования и сравнения формул
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="accordion accordion--mobile">
+                  <h3 class="accordion__heading">
+                    <button
+                      class="accordion__toggle"
+                      type="button"
+                      aria-expanded="false"
+                    >
+                      <i class="accordion__icon">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 5.00005C12.0012 4.60008 11.9224 4.20391 11.7682 3.83485C11.614 3.46579 11.3876 3.13128 11.1023 2.851C10.8169 2.57072 10.4784 2.35032 10.1067 2.20278C9.73491 2.05524 9.33739 1.98353 8.93751 1.99186C8.53762 2.0002 8.14344 2.08841 7.77815 2.25132C7.41286 2.41422 7.08383 2.64853 6.81041 2.94045C6.537 3.23238 6.32472 3.57604 6.18606 3.9512C6.04741 4.32637 5.98517 4.72548 6.00301 5.12505C5.41521 5.27619 4.86952 5.5591 4.40724 5.95236C3.94497 6.34562 3.57825 6.83892 3.33486 7.3949C3.09146 7.95087 2.97777 8.55494 3.0024 9.16136C3.02703 9.76778 3.18933 10.3606 3.47701 10.8951C2.97119 11.306 2.57344 11.8343 2.31835 12.434C2.06327 13.0337 1.95857 13.6866 2.01338 14.336C2.06818 14.9854 2.28083 15.6116 2.63282 16.1601C2.98481 16.7085 3.46548 17.1627 4.03301 17.4831C3.96293 18.0253 4.00475 18.5761 4.1559 19.1016C4.30705 19.627 4.56431 20.1159 4.9118 20.538C5.25929 20.9601 5.68962 21.3065 6.17623 21.5558C6.66284 21.8051 7.19539 21.952 7.74099 21.9874C8.28659 22.0228 8.83365 21.946 9.3484 21.7617C9.86315 21.5774 10.3346 21.2895 10.7338 20.9158C11.1329 20.5421 11.4512 20.0906 11.669 19.5891C11.8868 19.0876 11.9994 18.5468 12 18V5.00005Z"
+                            stroke="#0075C9"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M12 5.00005C11.9988 4.60008 12.0776 4.20391 12.2318 3.83485C12.386 3.46579 12.6124 3.13128 12.8977 2.851C13.1831 2.57072 13.5216 2.35032 13.8934 2.20278C14.2651 2.05524 14.6626 1.98353 15.0625 1.99186C15.4624 2.0002 15.8566 2.08841 16.2219 2.25132C16.5872 2.41422 16.9162 2.64853 17.1896 2.94045C17.463 3.23238 17.6753 3.57604 17.814 3.9512C17.9526 4.32637 18.0149 4.72548 17.997 5.12505C18.5848 5.27619 19.1305 5.5591 19.5928 5.95236C20.0551 6.34562 20.4218 6.83892 20.6652 7.3949C20.9086 7.95087 21.0223 8.55494 20.9976 9.16136C20.973 9.76778 20.8107 10.3606 20.523 10.8951C21.0288 11.306 21.4266 11.8343 21.6817 12.434C21.9368 13.0337 22.0415 13.6866 21.9867 14.336C21.9318 14.9854 21.7192 15.6116 21.3672 16.1601C21.0152 16.7085 20.5345 17.1627 19.967 17.4831C20.0371 18.0253 19.9953 18.5761 19.8441 19.1016C19.693 19.627 19.4357 20.1159 19.0882 20.538C18.7407 20.9601 18.3104 21.3065 17.8238 21.5558C17.3372 21.8051 16.8046 21.952 16.259 21.9874C15.7134 22.0228 15.1664 21.946 14.6516 21.7617C14.1369 21.5774 13.6654 21.2895 13.2663 20.9158C12.8671 20.5421 12.5488 20.0906 12.331 19.5891C12.1133 19.0876 12.0006 18.5468 12 18V5.00005Z"
+                            stroke="#0075C9"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M15 13C14.1604 12.7047 13.4273 12.167 12.8933 11.455C12.3593 10.743 12.0485 9.88867 12 9C11.9515 9.88867 11.6407 10.743 11.1067 11.455C10.5727 12.167 9.83956 12.7047 9 13"
+                            stroke="#0075C9"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M17.599 6.5C17.841 6.08059 17.9779 5.60882 17.998 5.125"
+                            stroke="#0075C9"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M6.00299 5.125C6.02277 5.60873 6.15932 6.0805 6.40099 6.5"
+                            stroke="#0075C9"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M3.47699 10.896C3.65993 10.747 3.85569 10.6145 4.06199 10.5"
+                            stroke="#0075C9"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M19.938 10.5C20.1443 10.6145 20.34 10.747 20.523 10.896"
+                            stroke="#0075C9"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M5.99999 18C5.31082 18.0003 4.63326 17.8226 4.03299 17.484"
+                            stroke="#0075C9"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M19.967 17.484C19.3667 17.8226 18.6892 18.0003 18 18"
+                            stroke="#0075C9"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </i>
+                      <span class="accordion__title">
+                        ИИ-помощник в подборе цвета
+                      </span>
+                      <i class="chevron chevron--down" aria-hidden="true"></i>
+                    </button>
+                  </h3>
+
+                  <ul
+                    class="list accordion__body"
+                    id="accordion-panel-5"
+                    role="region"
+                    aria-labelledby="accordion-btn-5"
+                  >
+                    <li class="list__item">Помощь в подборе краски</li>
+                    <li class="list__item">Автоматическое описание дефектов</li>
+                    <li class="list__item">Повышение уверенности мастера</li>
+                  </ul>
+                </div>
+
+                <div class="accordion accordion--mobile">
+                  <h3 class="accordion__heading">
+                    <button
+                      class="accordion__toggle"
+                      type="button"
+                      aria-expanded="false"
+                      aria-controls="accordion-panel-6"
+                      id="accordion-btn-6"
+                    >
+                      <i class="accordion__icon" aria-hidden="true">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M22 7L13.5 15.5L8.5 10.5L2 17"
+                            stroke="#0075C9"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M16 7H22V13"
+                            stroke="#0075C9"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </i>
+                      <span class="accordion__title">
+                        Работайте быстрее и профессиональнее
+                      </span>
+                      <i class="chevron chevron--down" aria-hidden="true"></i>
+                    </button>
+                  </h3>
+                  <ul
+                    class="list accordion__body"
+                    id="accordion-panel-6"
+                    role="region"
+                    aria-labelledby="accordion-btn-6"
+                  >
+                    <li class="list__item">От дилера к заявке</li>
+                    <li class="list__item">Подключение к поставщикам цен</li>
+                    <li class="list__item">Постоянный рост</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section__content section__content--col">
+            <aside class="sticker" aria-label="Иллюстрация: Владельцу">
+              <figure class="sticker__figure">
+                <picture class="sticker__img">
+                  <source srcset="/src/assets/images/stickers/owner.png" media="" />
+                  <img
+                    decoding="async"
+                    src="/src/assets/images/stickers/owner.png"
+                    alt=""
+                  />
+                </picture>
+                <figcaption class="sticker__surface">
+                  <h3 class="sticker__title">
+                    <span class="sticker__list sticker__list--animated">
+                      <span
+                        ><sup class="">*</sup>Импотерам окрасочных линий</span
+                      >
+                      <span><sup class="">*</sup>Заводу изготовителю</span>
+                      <span
+                        ><sup class="">*</sup>Владельцу крупной розничной
+                        сети</span
+                      >
+                    </span>
+                  </h3>
+                </figcaption>
+              </figure>
+            </aside>
+
+            <div class="card card--mobile-paddingless brand-strong">
+              <div class="card__body">
+                <div class="accordion accordion--mobile accordion--open">
+                  <h3 class="accordion__heading">
+                    <button
+                      class="accordion__toggle"
+                      type="button"
+                      aria-expanded="true"
+                      aria-controls="accordion-panel-7"
+                      id="accordion-btn-7"
+                    >
+                      <i class="accordion__icon" aria-hidden="true">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M21 16H17C16.4477 16 16 16.4477 16 17V21C16 21.5523 16.4477 22 17 22H21C21.5523 22 22 21.5523 22 21V17C22 16.4477 21.5523 16 21 16Z"
+                            stroke="#003B71"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M7 16H3C2.44772 16 2 16.4477 2 17V21C2 21.5523 2.44772 22 3 22H7C7.55228 22 8 21.5523 8 21V17C8 16.4477 7.55228 16 7 16Z"
+                            stroke="#003B71"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M14 2H10C9.44772 2 9 2.44772 9 3V7C9 7.55228 9.44772 8 10 8H14C14.5523 8 15 7.55228 15 7V3C15 2.44772 14.5523 2 14 2Z"
+                            stroke="#003B71"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M5 16V13C5 12.7348 5.10536 12.4804 5.29289 12.2929C5.48043 12.1054 5.73478 12 6 12H18C18.2652 12 18.5196 12.1054 18.7071 12.2929C18.8946 12.4804 19 12.7348 19 13V16"
+                            stroke="#003B71"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M12 12V8"
+                            stroke="#003B71"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </i>
+                      <span class="accordion__title">
+                        Единая экосистема для всех участников
+                      </span>
+                      <i class="chevron chevron--down" aria-hidden="true"></i>
+                    </button>
+                  </h3>
+
+                  <ul
+                    class="list accordion__body"
+                    id="accordion-panel-7"
+                    role="region"
+                    aria-labelledby="accordion-btn-7"
+                  >
+                    <li class="list__item">
+                      Объединение партнёров в одну сеть
+                    </li>
+                    <li class="list__item">
+                      Управление любым числом окрасочных линий
+                    </li>
+                    <li class="list__item">
+                      Централизованная база формул и рецептов
+                    </li>
+                    <li class="list__item">ИИ для любого количества линий</li>
+                  </ul>
+                </div>
+
+                <div class="accordion accordion--mobile">
+                  <h3 class="accordion__heading">
+                    <button
+                      class="accordion__toggle"
+                      type="button"
+                      aria-expanded="false"
+                    >
+                      <i class="accordion__icon">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12.22 2H11.78C11.2496 2 10.7409 2.21071 10.3658 2.58579C9.99072 2.96086 9.78 3.46957 9.78 4V4.18C9.77964 4.53073 9.68706 4.87519 9.51154 5.17884C9.33602 5.48248 9.08374 5.73464 8.78 5.91L8.35 6.16C8.04596 6.33554 7.70108 6.42795 7.35 6.42795C6.99893 6.42795 6.65404 6.33554 6.35 6.16L6.2 6.08C5.74107 5.81526 5.19584 5.74344 4.684 5.88031C4.17217 6.01717 3.73555 6.35154 3.47 6.81L3.25 7.19C2.98526 7.64893 2.91345 8.19416 3.05031 8.706C3.18717 9.21783 3.52154 9.65445 3.98 9.92L4.13 10.02C4.43228 10.1945 4.68362 10.4451 4.85905 10.7468C5.03448 11.0486 5.1279 11.391 5.13 11.74V12.25C5.1314 12.6024 5.03965 12.949 4.86405 13.2545C4.68844 13.5601 4.43521 13.8138 4.13 13.99L3.98 14.08C3.52154 14.3456 3.18717 14.7822 3.05031 15.294C2.91345 15.8058 2.98526 16.3511 3.25 16.81L3.47 17.19C3.73555 17.6485 4.17217 17.9828 4.684 18.1197C5.19584 18.2566 5.74107 18.1847 6.2 17.92L6.35 17.84C6.65404 17.6645 6.99893 17.5721 7.35 17.5721C7.70108 17.5721 8.04596 17.6645 8.35 17.84L8.78 18.09C9.08374 18.2654 9.33602 18.5175 9.51154 18.8212C9.68706 19.1248 9.77964 19.4693 9.78 19.82V20C9.78 20.5304 9.99072 21.0391 10.3658 21.4142C10.7409 21.7893 11.2496 22 11.78 22H12.22C12.7504 22 13.2591 21.7893 13.6342 21.4142C14.0093 21.0391 14.22 20.5304 14.22 20V19.82C14.2204 19.4693 14.3129 19.1248 14.4885 18.8212C14.664 18.5175 14.9163 18.2654 15.22 18.09L15.65 17.84C15.954 17.6645 16.2989 17.5721 16.65 17.5721C17.0011 17.5721 17.346 17.6645 17.65 17.84L17.8 17.92C18.2589 18.1847 18.8042 18.2566 19.316 18.1197C19.8278 17.9828 20.2645 17.6485 20.53 17.19L20.75 16.8C21.0147 16.3411 21.0866 15.7958 20.9497 15.284C20.8128 14.7722 20.4785 14.3356 20.02 14.07L19.87 13.99C19.5648 13.8138 19.3116 13.5601 19.136 13.2545C18.9604 12.949 18.8686 12.6024 18.87 12.25V11.75C18.8686 11.3976 18.9604 11.051 19.136 10.7455C19.3116 10.4399 19.5648 10.1862 19.87 10.01L20.02 9.92C20.4785 9.65445 20.8128 9.21783 20.9497 8.706C21.0866 8.19416 21.0147 7.64893 20.75 7.19L20.53 6.81C20.2645 6.35154 19.8278 6.01717 19.316 5.88031C18.8042 5.74344 18.2589 5.81526 17.8 6.08L17.65 6.16C17.346 6.33554 17.0011 6.42795 16.65 6.42795C16.2989 6.42795 15.954 6.33554 15.65 6.16L15.22 5.91C14.9163 5.73464 14.664 5.48248 14.4885 5.17884C14.3129 4.87519 14.2204 4.53073 14.22 4.18V4C14.22 3.46957 14.0093 2.96086 13.6342 2.58579C13.2591 2.21071 12.7504 2 12.22 2Z"
+                            stroke="#003B71"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
+                            stroke="#003B71"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </i>
+                      <span class="accordion__title">
+                        Контроль и оптимизация
+                      </span>
+                      <i class="chevron chevron--down" aria-hidden="true"></i>
+                    </button>
+                  </h3>
+
+                  <ul
+                    class="list accordion__body"
+                    id="accordion-panel-8"
+                    role="region"
+                    aria-labelledby="accordion-btn-8"
+                  >
+                    <li class="list__item">Мониторинг работы партнёров</li>
+                    <li class="list__item">Управление рецептами</li>
+                    <li class="list__item">
+                      Снижение затрат на техническую поддержку
+                    </li>
+                    <li class="list__item">Масштабируемость без ограничений</li>
+                    <li class="list__item">Управление качеством базы данных</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section"
+        id="tools"
+        role="region"
+        aria-labelledby="tools-title"
+      >
+        <div class="container flex-container">
+          <header class="section__header">
+            <h2 class="section__title" id="tools-title">Оборудование</h2>
+            <p class="section__subtitle">
+              Спектрофотометры — ваш надёжный инструмент для оцифровки
+            </p>
+          </header>
+
+          <div
+            class="section__content section__content--col section__content--reverse"
+          >
+            <aside class="sticker" aria-label="Иллюстрация: Оборудование">
+              <figure class="sticker__figure">
+                <picture class="sticker__img">
+                  <source srcset="/src/assets/images/stickers/tools.png" media="" />
+                  <img
+                    decoding="async"
+                    src="/src/assets/images/stickers/tools.png"
+                    alt=""
+                  />
+                </picture>
+              </figure>
+            </aside>
+
+            <div class="card card--mobile-paddingless brand-strong">
+              <div class="accordion accordion--mobile accordion--open">
+                <h3 class="accordion__heading">
+                  <button
+                    class="accordion__toggle"
+                    type="button"
+                    aria-expanded="false"
+                  >
+                    <i class="accordion__icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M14.7 6.29998C14.5168 6.48691 14.4142 6.73823 14.4142 6.99998C14.4142 7.26173 14.5168 7.51305 14.7 7.69998L16.3 9.29998C16.4869 9.48321 16.7383 9.58584 17 9.58584C17.2618 9.58584 17.5131 9.48321 17.7 9.29998L21.47 5.52998C21.9728 6.64117 22.1251 7.87921 21.9065 9.07913C21.6878 10.279 21.1087 11.3838 20.2463 12.2463C19.3839 13.1087 18.2791 13.6878 17.0792 13.9064C15.8792 14.1251 14.6412 13.9728 13.53 13.47L6.62001 20.38C6.22218 20.7778 5.68262 21.0013 5.12001 21.0013C4.5574 21.0013 4.01783 20.7778 3.62001 20.38C3.22218 19.9822 2.99869 19.4426 2.99869 18.88C2.99869 18.3174 3.22218 17.7778 3.62001 17.38L10.53 10.47C10.0272 9.35879 9.87492 8.12075 10.0936 6.92083C10.3122 5.72092 10.8913 4.61614 11.7537 3.7537C12.6162 2.89127 13.721 2.31215 14.9209 2.09352C16.1208 1.8749 17.3588 2.02714 18.47 2.52998L14.7 6.29998Z"
+                          stroke="#003B71"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </i>
+                    <span class="accordion__title">Возможности</span>
+                    <i class="chevron chevron--down accordion__chevron"></i>
+                  </button>
+                </h3>
+
+                <ul class="list accordion__body">
+                  <li class="list__item">
+                    Съемка цели (матер - модель, лючок)
+                  </li>
+                  <li class="list__item">
+                    Поиск формулы в локальной и глобальной базе или создание
+                    формулы с помощью ИИ
+                  </li>
+                  <li class="list__item">
+                    Анализ выкрашенной формулы относительно цели (мастер-модель,
+                    лючок)
+                  </li>
+                  <li class="list__item">
+                    Редактирование формулы в рамках одного заказа
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="embla tools-list"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Оборудование"
+          >
+            <div class="embla__viewport">
+              <ul class="embla__container" id="tools-carousel" role="list"></ul>
+            </div>
+
+            <div class="embla__controls tools-controls">
+              <button
+                class="embla__prev tools-controls__prev"
+                aria-label="Предыдущее оборудование"
+              >
+                <i class="chevron chevron--left"></i>
+              </button>
+              <button
+                class="embla__next tools-controls__next"
+                aria-label="Следущее оборудование"
+              >
+                <i class="chevron chevron--right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section"
+        id="analytics"
+        role="region"
+        aria-labelledby="analytics-title"
+      >
+        <div class="container flex-container">
+          <header class="section__header">
+            <h2 class="section__title" id="analytics-title">Аналитика</h2>
+            <p class="section__subtitle">
+              StartColor анализирует каждую формулу, заказ и цвет.
+            </p>
+          </header>
+
+          <div class="section__content section__content--col">
+            <aside class="sticker" aria-label="Иллюстрация: Аналитика">
+              <figure class="sticker__figure">
+                <picture class="sticker__img">
+                  <source srcset="/src/assets/images/stickers/analytics.png" media="" />
+                  <img
+                    decoding="async"
+                    src="/src/assets/images/stickers/analytics.png"
+                    alt=""
+                  />
+                </picture>
+              </figure>
+            </aside>
+
+            <div class="card chart-box">
+              <div class="card__header">
+                <h3 class="card__title" id="trend-chart-title">
+                  Рост AI заказов
+                </h3>
+              </div>
+
+              <div class="card__body">
+                <canvas id="trendChart" height="220"></canvas>
+              </div>
+            </div>
+
+            <div class="card chart-box">
+              <div class="card__header">
+                <h3 class="card__title" id="brands-chart-title">
+                  Топ-5 брендов
+                </h3>
+              </div>
+
+              <div class="card__body">
+                <canvas id="brandsChart" height="220"></canvas>
+              </div>
+            </div>
+
+            <div class="card chart-box">
+              <div class="card__header">
+                <h3 class="card__title" id="colors-chart-title">
+                  Самые популярные цвета
+                </h3>
+              </div>
+
+              <div class="card__body">
+                <canvas id="colorsChart" height="220"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section"
+        id="download"
+        role="region"
+        aria-labelledby="download-title"
+      >
+        <div class="container flex-container">
+          <header class="section__header">
+            <h2 class="section__title" id="download-title">
+              Скачать StartColor
+            </h2>
+            <p class="section__subtitle">
+              Начните работу с StartColor уже сегодня
+            </p>
+          </header>
+
+          <div class="section__content section__content--col">
+            <div class="card download-card card--mobile-paddingless">
+              <div class="accordion accordion--mobile accordion--open">
+                <h3
+                  class="card__header accordion__heading"
+                  id="download-light-title"
+                >
+                  <button
+                    class="accordion__toggle brand-strong"
+                    type="button"
+                    aria-expanded="true"
+                  >
+                    <div class="accordion__title">
+                      <span class="card__title">
+                        <i class="card__icon">
+                          <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 32 32"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M28 20V25.3333C28 26.0406 27.719 26.7189 27.219 27.219C26.7189 27.719 26.0406 28 25.3333 28H6.66667C5.95942 28 5.28115 27.719 4.78105 27.219C4.28095 26.7189 4 26.0406 4 25.3333V20"
+                              stroke="#003B71"
+                              stroke-width="2.66667"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M9.33334 13.3335L16 20.0002L22.6667 13.3335"
+                              stroke="#003B71"
+                              stroke-width="2.66667"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M16 20V4"
+                              stroke="#003B71"
+                              stroke-width="2.66667"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </i>
+                        <span class="card__title-text">Легкая версия</span>
+                      </span>
+
+                      <span class="card__subtitle">
+                        Облегченная версия с базовым функционалом
+                      </span>
+                    </div>
+
+                    <i class="chevron chevron--down accordion__chevron"></i>
+                  </button>
+                </h3>
+
+                <ul class="list accordion__body">
+                  <li class="list__item card__requirement">
+                    <i class="icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8 21H16M12 17V21M4 3H20C21.1046 3 22 3.89543 22 5V15C22 16.1046 21.1046 17 20 17H4C2.89543 17 2 16.1046 2 15V5C2 3.89543 2.89543 3 4 3Z"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </i>
+                    <p class="card__requirement-text">
+                      <strong>Операционная система</strong>
+                      <span>Windows 10/11 x64</span>
+                    </p>
+                  </li>
+                  <li class="list__item card__requirement">
+                    <i class="icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.00004 12.5498C6.97661 10.9035 9.46765 10.0019 12.04 10.0019C14.6124 10.0019 17.1035 10.9035 19.08 12.5498M1.42004 8.99979C4.34247 6.42376 8.10434 5.00244 12 5.00244C15.8957 5.00244 19.6576 6.42376 22.58 8.99979M8.53004 16.1098C9.54525 15.3885 10.7597 15.001 12.005 15.001C13.2504 15.001 14.4648 15.3885 15.48 16.1098M12 19.9998H12.01"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </i>
+                    <p class="card__requirement-text">
+                      <strong>Интернет</strong>
+                      <span>Проводной</span>
+                    </p>
+                  </li>
+                  <li class="list__item card__requirement">
+                    <i class="icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M22 12H2M22 12V18C22 18.5304 21.7893 19.0391 21.4142 19.4142C21.0391 19.7893 20.5304 20 20 20H4C3.46957 20 2.96086 19.7893 2.58579 19.4142C2.21071 19.0391 2 18.5304 2 18V12M22 12L18.55 5.11C18.3844 4.77679 18.1292 4.49637 17.813 4.30028C17.4967 4.10419 17.1321 4.0002 16.76 4H7.24C6.86792 4.0002 6.50326 4.10419 6.18704 4.30028C5.87083 4.49637 5.61558 4.77679 5.45 5.11L2 12M6 16H6.01M10 16H10.01"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </i>
+                    <p class="card__requirement-text">
+                      <strong>Дисковое пространство</strong>
+                      <span>Минимум 500 МБ свободного места</span>
+                    </p>
+                  </li>
+                  <li class="list__item card__requirement">
+                    <i class="icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18 4H6C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18V6C20 4.89543 19.1046 4 18 4Z"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M14 9H10C9.44772 9 9 9.44772 9 10V14C9 14.5523 9.44772 15 10 15H14C14.5523 15 15 14.5523 15 14V10C15 9.44772 14.5523 9 14 9Z"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M15 2V4"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M15 20V22"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M2 15H4"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M2 9H4"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M20 15H22"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M20 9H22"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M9 2V4"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M9 20V22"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </i>
+                    <p class="card__requirement-text">
+                      <strong>Процессор</strong>
+                      <span>IntelCore i3 | Ryzen 3 и выше</span>
+                    </p>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card__footer">
+                <div class="card__actions">
+                  <button class="btn btn--default">
+                    <i class="btn__icon btn__icon--left">
+                      <svg
+                        width="17"
+                        height="18"
+                        viewBox="0 0 17 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0 2.4325L6.81583 1.47917V8.19167H0M7.63667 1.3425L16.6667 0V8.13333H7.63667M0 8.9H6.81583V15.6333L0 14.6592M7.63667 8.98917H16.6667V17.0442L7.63667 15.7408"
+                          fill="white"
+                        />
+                      </svg>
+                    </i>
+                    Подключить
+                  </button>
+                  <button class="btn btn--outline">Оставить заявку</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card download-card card--mobile-paddingless">
+              <div class="accordion accordion--mobile accordion--open">
+                <h3
+                  class="card__header accordion__heading"
+                  id="download-full-title"
+                >
+                  <button
+                    class="accordion__toggle brand-strong"
+                    type="button"
+                    aria-expanded="true"
+                  >
+                    <div class="accordion__title">
+                      <span class="card__title">
+                        <i class="card__icon">
+                          <svg
+                            width="32"
+                            height="32"
+                            viewBox="0 0 32 32"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M28 20V25.3333C28 26.0406 27.719 26.7189 27.219 27.219C26.7189 27.719 26.0406 28 25.3333 28H6.66667C5.95942 28 5.28115 27.719 4.78105 27.219C4.28095 26.7189 4 26.0406 4 25.3333V20"
+                              stroke="#003B71"
+                              stroke-width="2.66667"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M9.33334 13.3335L16 20.0002L22.6667 13.3335"
+                              stroke="#003B71"
+                              stroke-width="2.66667"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M16 20V4"
+                              stroke="#003B71"
+                              stroke-width="2.66667"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </i>
+                        <span class="card__title-text">Полная версия</span>
+                      </span>
+
+                      <span class="card__subtitle">
+                        Полнофункциональный инструмент для управления формулами,
+                        интеграции с весами и AI-аналитики прямо на вашем
+                        компьютере.
+                      </span>
+                    </div>
+
+                    <i class="chevron chevron--down accordion__chevron"></i>
+                  </button>
+                </h3>
+                <ul class="list accordion__body">
+                  <li class="list__item card__requirement">
+                    <i class="icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8 21H16M12 17V21M4 3H20C21.1046 3 22 3.89543 22 5V15C22 16.1046 21.1046 17 20 17H4C2.89543 17 2 16.1046 2 15V5C2 3.89543 2.89543 3 4 3Z"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </i>
+                    <p class="card__requirement-text">
+                      <strong>Операционная система</strong
+                      ><span>Windows 10/11 x64</span>
+                    </p>
+                  </li>
+                  <li class="list__item card__requirement">
+                    <i class="icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.00004 12.5498C6.97661 10.9035 9.46765 10.0019 12.04 10.0019C14.6124 10.0019 17.1035 10.9035 19.08 12.5498M1.42004 8.99979C4.34247 6.42376 8.10434 5.00244 12 5.00244C15.8957 5.00244 19.6576 6.42376 22.58 8.99979M8.53004 16.1098C9.54525 15.3885 10.7597 15.001 12.005 15.001C13.2504 15.001 14.4648 15.3885 15.48 16.1098M12 19.9998H12.01"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </i>
+                    <p class="card__requirement-text">
+                      <strong>Интернет</strong>
+                      <span>Проводной</span>
+                    </p>
+                  </li>
+                  <li class="list__item card__requirement">
+                    <i class="icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M22 12H2M22 12V18C22 18.5304 21.7893 19.0391 21.4142 19.4142C21.0391 19.7893 20.5304 20 20 20H4C3.46957 20 2.96086 19.7893 2.58579 19.4142C2.21071 19.0391 2 18.5304 2 18V12M22 12L18.55 5.11C18.3844 4.77679 18.1292 4.49637 17.813 4.30028C17.4967 4.10419 17.1321 4.0002 16.76 4H7.24C6.86792 4.0002 6.50326 4.10419 6.18704 4.30028C5.87083 4.49637 5.61558 4.77679 5.45 5.11L2 12M6 16H6.01M10 16H10.01"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </i>
+                    <p class="card__requirement-text">
+                      <strong>Дисковое пространство</strong>
+                      <span>Минимум 500 МБ свободного места</span>
+                    </p>
+                  </li>
+                  <li class="list__item card__requirement">
+                    <i class="icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18 4H6C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18V6C20 4.89543 19.1046 4 18 4Z"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M14 9H10C9.44772 9 9 9.44772 9 10V14C9 14.5523 9.44772 15 10 15H14C14.5523 15 15 14.5523 15 14V10C15 9.44772 14.5523 9 14 9Z"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M15 2V4"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M15 20V22"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M2 15H4"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M2 9H4"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M20 15H22"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M20 9H22"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M9 2V4"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M9 20V22"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </i>
+                    <p class="card__requirement-text">
+                      <strong>Процессор</strong>
+                      <span>IntelCore i3 | Ryzen 3 и выше</span>
+                    </p>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card__footer">
+                <div class="card__actions">
+                  <button class="btn btn--default">
+                    <i class="btn__icon btn__icon--left">
+                      <svg
+                        width="17"
+                        height="18"
+                        viewBox="0 0 17 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0 2.4325L6.81583 1.47917V8.19167H0M7.63667 1.3425L16.6667 0V8.13333H7.63667M0 8.9H6.81583V15.6333L0 14.6592M7.63667 8.98917H16.6667V17.0442L7.63667 15.7408"
+                          fill="white"
+                        />
+                      </svg>
+                    </i>
+                    Подключить
+                  </button>
+                  <button class="btn btn--outline">Оставить заявку</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section"
+        id="knowledge"
+        role="region"
+        aria-labelledby="knowledge-title"
+      >
+        <div class="container flex-container">
+          <header class="section__header">
+            <h2 class="section__title" id="knowledge-title">База знаний</h2>
+            <p class="section__subtitle">
+              Видео-уроки, инструкции и обновления StartColor в удобном формате
+            </p>
+          </header>
+
+          <div class="section__content section__content--col">
+            <div class="card knowledge-card">
+              <div class="card__header">
+                <h4 class="card__title">
+                  <i class="card__icon">
+                    <svg
+                      width="34"
+                      height="34"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 7V21"
+                        stroke="#003b71"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M3 18C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V17C22 17.2652 21.8946 17.5196 21.7071 17.7071C21.5196 17.8946 21.2652 18 21 18H15C14.2044 18 13.4413 18.3161 12.8787 18.8787C12.3161 19.4413 12 20.2044 12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3Z"
+                        stroke="#003b71"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </i>
+                  <span class="card__title-text">
+                    Освойте StartColor быстрее с видеоруоками и гайдами
+                  </span>
+                </h4>
+              </div>
+
+              <div class="card__body">
+                <div class="card__action">
+                  <button class="btn btn--default">
+                    Смотреть в
+                    <span class="btn__icon">
+                      <svg
+                        width="24"
+                        height="15"
+                        viewBox="0 0 24 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M13.0718 15C4.8719 15 0.19488 9.3694 0 0H4.1074C4.2423 6.8769 7.2704 9.7898 9.6689 10.3904V0H13.5366V5.9309C15.9051 5.6757 18.3933 2.973 19.2328 0H23.1004C22.4558 3.6637 19.7575 6.3664 17.8387 7.4775C19.7575 8.3784 22.8307 10.7357 24 15H19.7425C18.8281 12.1471 16.5497 9.9399 13.5366 9.6396V15H13.0718Z"
+                          fill="#ffffff"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="card__footer">
+                <span class="text-muted">Или на других платформах:</span>
+                <div class="card__actions">
+                  <a href="#" class="link link--icon-btn">
+                    <i class="icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          class="link-icon-gradient"
+                          d="M0 0H7.943C11.3722 0 14.6667 2.2265 14.6667 5.782C14.6667 9.3376 12 10.7886 9.4171 11.5556H3.5556V8H7.9118C9.2945 8 10.4 6.9911 10.4 5.782C10.4 4.573 9.3867 3.4297 7.943 3.4297H4.2264V16H0V0ZM11.1234 16L6.2931 9.5183L11.1234 9.4963L16 16H11.1234Z"
+                          fill="url(#grad-brand)"
+                        />
+                        <path
+                          class="link-icon-fill"
+                          d="M0 0H7.943C11.3722 0 14.6667 2.2265 14.6667 5.782C14.6667 9.3376 12 10.7886 9.4171 11.5556H3.5556V8H7.9118C9.2945 8 10.4 6.9911 10.4 5.782C10.4 4.573 9.3867 3.4297 7.943 3.4297H4.2264V16H0V0ZM11.1234 16L6.2931 9.5183L11.1234 9.4963L16 16H11.1234Z"
+                          fill="var(--link-clr)"
+                        />
+                      </svg>
+                    </i>
+                  </a>
+
+                  <a href="#" class="link link--icon-btn">
+                    <i class="icon">
+                      <svg
+                        width="32"
+                        height="24"
+                        viewBox="0 0 24 17"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          class="link-icon-gradient"
+                          d="M23.4917 2.58602C23.3524 2.08782 23.0867 1.63402 22.7205 1.26862C22.3543 0.903224 21.9 0.638524 21.4015 0.500224C19.5302 2.43187e-05 12.0077 2.40393e-05 12.0077 2.40393e-05C12.0077 2.40393e-05 4.4995 -0.0119757 2.6087 0.500224C2.111 0.639124 1.65759 0.904124 1.29221 1.26942C0.926838 1.63482 0.661888 2.08832 0.522988 2.58602C0.167638 4.50162 -0.00737214 6.44642 0.000237859 8.39472C-0.00322214 10.3337 0.171768 12.2688 0.522988 14.1757C0.662338 14.6737 0.927358 15.1275 1.29261 15.4935C1.65786 15.8596 2.1111 16.1256 2.6087 16.266C4.48 16.7662 12.0077 16.7662 12.0077 16.7662C12.0077 16.7662 19.5115 16.7662 21.4015 16.266C21.9 16.1262 22.3541 15.8604 22.7201 15.4944C23.0862 15.3283 23.3519 14.8742 23.4917 14.3757C23.836 12.27 24.004 10.332 23.992 8.39472C24.004 6.44472 23.8397 4.50372 23.4917 2.58602ZM9.6047 11.985V4.78872L15.8665 8.39472L9.6047 11.985Z"
+                          fill="url(#grad-brand)"
+                        />
+                        <path
+                          class="link-icon-fill"
+                          d="M23.4917 2.58602C23.3524 2.08782 23.0867 1.63402 22.7205 1.26862C22.3543 0.903224 21.9 0.638524 21.4015 0.500224C19.5302 2.43187e-05 12.0077 2.40393e-05 12.0077 2.40393e-05C12.0077 2.40393e-05 4.4995 -0.0119757 2.6087 0.500224C2.111 0.639124 1.65759 0.904124 1.29221 1.26942C0.926838 1.63482 0.661888 2.08832 0.522988 2.58602C0.167638 4.50162 -0.00737214 6.44642 0.000237859 8.39472C-0.00322214 10.3337 0.171768 12.2688 0.522988 14.1757C0.662338 14.6737 0.927358 15.1275 1.29261 15.4935C1.65786 15.8596 2.1111 16.1256 2.6087 16.266C4.48 16.7662 12.0077 16.7662 12.0077 16.7662C12.0077 16.7662 19.5115 16.7662 21.4015 16.266C21.9 16.1262 22.3541 15.8604 22.7201 15.4944C23.0862 15.3283 23.3519 14.8742 23.4917 14.3757C23.836 12.27 24.004 10.332 23.992 8.39472C24.004 6.44472 23.8397 4.50372 23.4917 2.58602ZM9.6047 11.985V4.78872L15.8665 8.39472L9.6047 11.985Z"
+                          fill="var(--link-clr)"
+                        />
+                      </svg>
+                    </i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <aside class="sticker" aria-label="Иллюстрация: База знаний">
+              <figure class="sticker__figure">
+                <picture class="sticker__img">
+                  <source srcset="/src/assets/images/stickers/learning.png" media="" />
+                  <img
+                    decoding="async"
+                    src="/src/assets/images/stickers/learning.png"
+                    alt=""
+                  />
+                </picture>
+              </figure>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section section-tariffs"
+        role="region"
+        aria-labelledby="tariffs-title"
+      >
+        <div class="container flex-container">
+          <header class="section__header">
+            <h2 class="section__title" id="tariffs-title">Тарифы</h2>
+            <p class="section__subtitle">
+              Выберите подходящий тарифный план для вашего бизнеса
+            </p>
+          </header>
+
+          <div class="section__content tariffs">
+            <div
+              class="embla tariffs__embla"
+              id="tariffsCarousel"
+              tabindex="0"
+              role="region"
+              aria-roledescription="carousel"
+              aria-label="Тарифные планы"
+            >
+              <div class="embla__viewport tariffs__viewport">
+                <ul class="tariffs__list embla__container" role="list">
+                  <article
+                    class="card brand tariffs__card embla__slide tariff-left hidden"
+                  >
+                    <div class="card__header">
+                      <h4 class="card__title">Пользовательский доступ</h4>
+                      <p class="card__subtitle">
+                        Лицензия на дополнительный ключ доступа
+                      </p>
+                    </div>
+
+                    <div class="card__body">
+                      <div class="tariffs__price">
+                        <div
+                          class="tariffs__price-value"
+                          aria-label="1 490 рублей"
+                        >
+                          1 490 <span class="tariffs__currency">&#8381;</span>
+                        </div>
+                        <span class="tariffs__periodicity"
+                          >ежемесячная оплата</span
+                        >
+                      </div>
+
+                      <ul class="list">
+                        <li class="list__item">Полная функциональность</li>
+                        <li class="list__item">Интеграция с 1С</li>
+                        <li class="list__item">Модуль аналитики</li>
+                        <li class="list__item">Техническая поддержка</li>
+                      </ul>
+                    </div>
+
+                    <div class="card__footer">
+                      <div class="tariffs__actions">
+                        <button class="btn btn--default">Подключить</button>
+                        <div
+                          class="accordion accordion--mobile tariffs__accordion"
+                        >
+                          <button
+                            class="accordion__toggle"
+                            aria-expanded="false"
+                            type="button"
+                          >
+                            Показать оборудование
+                            <i
+                              class="chevron chevron--down accordion__chevron"
+                            ></i>
+                          </button>
+                          <div class="accordion__body">
+                            <ul class="list">
+                              <li class="list__item">РМК - 190 000 ₽</li>
+                              <li class="list__item">
+                                Спектрофометр - от 40 000 ₽ (в зависимости от
+                                типа прибора)
+                              </li>
+                            </ul>
+                            <p class="tariffs__note">
+                              *Cтоимость подключения прибора единоразово к сети
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article
+                    class="card card--accent brand tariffs__card embla__slide"
+                  >
+                    <div class="chip tariffs-chip">
+                      <i class="chip__icon">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3.00002 11.0002C2.00002 11.8402 1.66669 14.3335 1.66669 14.3335C1.66669 14.3335 4.16002 14.0002 5.00002 13.0002C5.47335 12.4402 5.46669 11.5802 4.94002 11.0602C4.68089 10.8129 4.33955 10.67 3.9815 10.6589C3.62346 10.6478 3.27394 10.7694 3.00002 11.0002Z"
+                            stroke="#0075C9"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M8 9.99984L6 7.99984C6.35476 7.07946 6.80147 6.19722 7.33333 5.36651C8.11012 4.1245 9.19175 3.10187 10.4753 2.3959C11.7589 1.68993 13.2018 1.32409 14.6667 1.33317C14.6667 3.14651 14.1467 6.33317 10.6667 8.66651C9.82459 9.19899 8.93123 9.64567 8 9.99984Z"
+                            stroke="#0075C9"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M6.00002 7.99985H2.66669C2.66669 7.99985 3.03335 5.97985 4.00002 5.33318C5.08002 4.61318 7.33335 5.33318 7.33335 5.33318"
+                            stroke="#0075C9"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path
+                            d="M8 9.99984V13.3332C8 13.3332 10.02 12.9665 10.6667 11.9998C11.3867 10.9198 10.6667 8.6665 10.6667 8.6665"
+                            stroke="#0075C9"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </i>
+                      Популярный
+                    </div>
+                    <div class="card__header">
+                      <h4 class="card__title">PNK LS StartColor Pro</h4>
+                      <p class="card__subtitle">
+                        Лицензия на рабочее место колориста
+                      </p>
+                    </div>
+
+                    <div class="card__body">
+                      <div class="tariffs__price">
+                        <div
+                          class="tariffs__price-value"
+                          aria-label="7 990 рублей"
+                        >
+                          7 990 <span class="tariffs__currency">&#8381;</span>
+                        </div>
+                        <span class="tariffs__periodicity"
+                          >ежемесячная оплата</span
+                        >
+                      </div>
+
+                      <ul class="list">
+                        <li class="list__item">Полная функциональность</li>
+                        <li class="list__item">Интеграция с 1С</li>
+                        <li class="list__item">Модуль аналитики</li>
+                        <li class="list__item">Техническая поддержка</li>
+                      </ul>
+                    </div>
+
+                    <div class="card__footer">
+                      <div class="tariffs__actions">
+                        <button class="btn btn--default">Подключить</button>
+                        <div
+                          class="accordion accordion--mobile tariffs__accordion"
+                        >
+                          <button
+                            class="accordion__toggle"
+                            aria-expanded="false"
+                            type="button"
+                          >
+                            Показать оборудование
+                            <i
+                              class="chevron chevron--down accordion__chevron"
+                            ></i>
+                          </button>
+                          <div class="accordion__body">
+                            <ul class="list">
+                              <li class="list__item">РМК - 190 000 ₽</li>
+                              <li class="list__item">
+                                Спектрофометр - от 40 000 ₽ (в зависимости от
+                                типа прибора)
+                              </li>
+                            </ul>
+                            <p class="tariffs__note">
+                              *Cтоимость подключения прибора единоразово к сети
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article
+                    class="card brand tariffs__card embla__slide tariff-right hidden"
+                  >
+                    <div class="card__header">
+                      <h4 class="card__title">API</h4>
+                      <p class="card__subtitle">Ключ доступа для интеграции</p>
+                    </div>
+
+                    <div class="card__body">
+                      <div class="tariffs__price">
+                        <div
+                          class="tariffs__price-value"
+                          aria-label="60 000 рублей"
+                        >
+                          60 000 <span class="tariffs__currency">&#8381;</span>
+                        </div>
+                        <span class="tariffs__periodicity">единоразово</span>
+                      </div>
+
+                      <ul class="list">
+                        <li class="list__item">Полная функциональность</li>
+                        <li class="list__item">Интеграция с 1С</li>
+                        <li class="list__item">Модуль аналитики</li>
+                        <li class="list__item">Техническая поддержка</li>
+                      </ul>
+                    </div>
+
+                    <div class="card__footer">
+                      <div class="tariffs__actions">
+                        <button class="btn btn--default">Подключить</button>
+                        <div
+                          class="accordion accordion--mobile tariffs__accordion"
+                        >
+                          <button
+                            class="accordion__toggle"
+                            aria-expanded="false"
+                            type="button"
+                          >
+                            Показать оборудование
+                            <i
+                              class="chevron chevron--down accordion__chevron"
+                            ></i>
+                          </button>
+                          <div class="accordion__body">
+                            <ul class="list">
+                              <li class="list__item">РМК - 190 000 ₽</li>
+                              <li class="list__item">
+                                Спектрофометр - от 40 000 ₽ (в зависимости от
+                                типа прибора)
+                              </li>
+                            </ul>
+                            <p class="tariffs__note">
+                              *Cтоимость подключения прибора единоразово к сети
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </ul>
+              </div>
+            </div>
+
+            <div class="embla__controls tariffs-controls">
+              <button
+                type="button"
+                class="embla__prev tariffs-controls__prev"
+                aria-label="Предыдущий тариф"
+              >
+                <i class="chevron chevron--left"></i>
+              </button>
+              <button
+                type="button"
+                class="embla__next tariffs-controls__next"
+                aria-label="Следующий тариф"
+              >
+                <i class="chevron chevron--right"></i>
+              </button>
+            </div>
+
+            <div class="tariffs__meta section-tariffs-note">
+              <div class="tariffs__toggle">
+                <span class="tariffs__toggle-label">Показать все тарифы</span>
+                <button
+                  id="tariffsToggler"
+                  class="tariffs__toggler toggle__btn"
+                  type="button"
+                  aria-label="Показать все тарифы"
+                  aria-pressed="false"
+                >
+                  <span class="tariffs__toggler-knob toggle__icon"></span>
+                </button>
+              </div>
+
+              <p class="tariffs__note tariffs__note--summary">
+                *Все цены указаны без НДС. Требуется подключение и настройка.
+              </p>
+            </div>
+
+            <div class="tariffs__decoration">
+              <div class="tariffs__art">
+                <picture>
+                  <source srcset="/src/assets/images/stickers/tariffs.png" media="" />
+                  <img
+                    id="tariffsStickerImg"
+                    decoding="async"
+                    src="/src/assets/images/stickers/tariffs.png"
+                    alt="Тарифы"
+                  />
+                </picture>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section section-news"
+        role="region"
+        aria-labelledby="news-title"
+      >
+        <div class="container flex-container">
+          <header class="section__header">
+            <h2 class="section__title" id="news-title">Новости и обновления</h2>
+            <p class="section__subtitle">Будьте в курсе обновлений</p>
+          </header>
+
+          <div class="section__content section__content--col">
+            <div
+              class="embla news-list"
+              role="region"
+              aria-roledescription="carousel"
+              aria-label="Новости и обновления"
+            >
+              <div class="embla__viewport">
+                <ul class="embla__container" id="news-carousel" role="list">
+                  <li
+                    class="embla__slide"
+                    role="listitem"
+                    aria-roledescription="slide"
+                    aria-label="1 из 3"
+                  >
+                    <article class="card news-card">
+                      <div class="card__header">
+                        <time class="card__date" datetime="2026-05-02">
+                          2 мая 2026
+                        </time>
+                        <h4 class="news-card__title card__title">
+                          Обновление AI-алгоритма v5.2
+                        </h4>
+                      </div>
+
+                      <div class="card__body">
+                        <p class="card__text">
+                          Улучшена точность подбора цвета на 18%.
+                        </p>
+                      </div>
+
+                      <div class="card__footer">
+                        <a href="#" class="link">Читать подробнее</a>
+                      </div>
+                    </article>
+                  </li>
+
+                  <li
+                    class="embla__slide"
+                    role="listitem"
+                    aria-roledescription="slide"
+                    aria-label="2 из 3"
+                  >
+                    <article class="card news-card">
+                      <div class="card__header">
+                        <time class="card__date" datetime="2026-05-02">
+                          2 мая 2026
+                        </time>
+                        <h4 class="news-card__title card__title">
+                          Обновление AI-алгоритма v5.2
+                        </h4>
+                      </div>
+
+                      <div class="card__body">
+                        <p class="card__text">
+                          Lorem Ipsum is simply dummy text of the printing and
+                          typesetting industry. Lorem Ipsum has been the
+                          industry's standard dummy text ever since the 1500s,
+                          when an unknown printer took a galley of type and
+                          scrambled it to make a type specimen book. It has
+                          survived not only five centuries, but also the leap
+                          into electronic typesetting, remaining essentially
+                          unchanged. It was popularised in the 1960s with the
+                          release of Letraset sheets containing Lorem Ipsum
+                          passages, and more recently with desktop publishing
+                          software like Aldus PageMaker including versions of
+                          Lorem Ipsum.
+                        </p>
+                      </div>
+
+                      <div class="card__footer">
+                        <a href="#" class="link">Читать подробнее</a>
+                      </div>
+                    </article>
+                  </li>
+
+                  <li
+                    class="embla__slide"
+                    role="listitem"
+                    aria-roledescription="slide"
+                    aria-label="3 из 3"
+                  >
+                    <article class="card news-card">
+                      <div class="card__header">
+                        <time class="card__date" datetime="2026-05-02">
+                          2 мая 2026
+                        </time>
+                        <h4 class="news-card__title card__title">
+                          Lorem Ipsum is simply dummy text of the printing and
+                          typesetting industry. Lorem Ipsum has been the
+                          industry's standard dummy text ever since the 1500s,
+                          when an unknown printer took a galley of type and
+                          scrambled it to make a type specimen book.
+                        </h4>
+                      </div>
+
+                      <div class="card__body">
+                        <p class="card__text">
+                          Улучшена точность подбора цвета на 18%.
+                        </p>
+                      </div>
+
+                      <div class="card__footer">
+                        <a href="#" class="link">Читать подробнее</a>
+                      </div>
+                    </article>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="embla__controls news-controls">
+                <button
+                  class="embla__prev news-controls__prev"
+                  aria-label="Предыдущее оборудование"
+                >
+                  <i class="chevron chevron--left"></i>
+                </button>
+                <button
+                  class="embla__next news-controls__next"
+                  aria-label="Следущее оборудование"
+                >
+                  <i class="chevron chevron--right"></i>
+                </button>
+              </div>
+            </div>
+
+            <aside
+              class="sticker"
+              aria-label="Иллюстрация: Новости и обновления"
+            >
+              <figure class="sticker__figure">
+                <picture class="sticker__img">
+                  <source srcset="/src/assets/images/stickers/updates.png" media="" />
+                  <img
+                    decoding="async"
+                    src="/src/assets/images/stickers/updates.png"
+                    alt=""
+                  />
+                </picture>
+              </figure>
+              <a href="#" class="link" target="_blank">
+                Подписаться на Telegram канал
+              </a>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section"
+        id="press"
+        role="region"
+        aria-labelledby="press-title"
+      >
+        <div class="container flex-container">
+          <header class="section__header">
+            <h2 class="section__title" id="press-title">Пресса о нас</h2>
+            <p class="section__subtitle">
+              Публикации и отзывы профильных изданий
+            </p>
+          </header>
+
+          <div class="section__content">
+            <div
+              class="embla press-list"
+              role="region"
+              aria-roledescription="carousel"
+              aria-label="Пресса о StartColor"
+            >
+              <div class="embla__viewport">
+                <ul class="embla__container" role="list">
+                  <li
+                    class="embla__slide"
+                    role="listitem"
+                    aria-roledescription="slide"
+                    aria-label="1 из 3"
+                  >
+                    <div class="card press-card">
+                      <a
+                        href="https://vk.com/video-105468378_456239226"
+                        target="_blank"
+                      >
+                        <div class="card__header">
+                          <span class="card__media">
+                            <img
+                              src="/src/assets/images/press/press-preview.png"
+                              alt="Сделано в Челябинске компания «2 Стахановца»"
+                            />
+                          </span>
+                        </div>
+
+                        <div class="card__body">
+                          <h4 class="card__title">
+                            "Сделано в Челябинске" компания «2 Стахановца»
+                          </h4>
+                        </div>
+                      </a>
+                    </div>
+                  </li>
+
+                  <li
+                    class="embla__slide"
+                    role="listitem"
+                    aria-roledescription="slide"
+                    aria-label="2 из 3"
+                  >
+                    <div class="card press-card">
+                      <a href="http://" target="_blank">
+                        <div class="card__body">
+                          <h4 class="card__title">
+                            Институт Прикладной Математики имени М.В. Келдыша
+                            Российской Академии Наук
+                          </h4>
+                          <p class="card__text">
+                            Гибридный подход к подбору состава автомобильной
+                            краски желаемого цвета на основе нейронных сетей и
+                            моделирования света
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </li>
+
+                  <li
+                    class="embla__slide"
+                    role="listitem"
+                    aria-roledescription="slide"
+                    aria-label="3 из 3"
+                  >
+                    <div class="card press-card">
+                      <a href="http://" target="_blank">
+                        <div class="card__body">
+                          <h4 class="card__title">
+                            A Hybrid Approach to Color Matching for Metallic
+                            Automotive Paint
+                          </h4>
+                          <p class="card__text">
+                            Scientific Visualization Open Access Electronic
+                            Journal National Research Nuclear University "MEPhI"
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="embla__controls press-controls">
+                <button
+                  class="embla__prev press-controls__prev"
+                  aria-label="Предыдущая публикация"
+                >
+                  <i class="chevron chevron--left"></i>
+                </button>
+                <button
+                  class="embla__next press-controls__next"
+                  aria-label="Следующая публикация"
+                >
+                  <i class="chevron chevron--right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section"
+        id="geo"
+        role="region"
+        aria-labelledby="geo-title"
+      >
+        <div class="container flex-container">
+          <header class="section__header">
+            <h2 class="section__title" id="geo-title">География присутствия</h2>
+            <p class="section__subtitle">
+              StartColor используют мастерские по всей России, странам СНГ и
+              другим странам мира
+            </p>
+          </header>
+
+          <div class="section__content">
+            <div class="card geo-card">
+              <picture class="card__media">
+                <source srcset="/src/assets/images/map.png" media="" />
+                <img
+                  decoding="async"
+                  src="/src/assets/images/map.png"
+                  alt="Аналитика"
+                />
+              </picture>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container grid-container">
+        <div class="footer__content footer__content--col">
+          <a class="logo" href="/">
+            <picture>
+              <source srcset="/src/assets/images/logo.svg" media="" />
+              <img
+                decoding="async"
+                src="/src/assets/images/logo.svg"
+                alt="StartColor"
+              />
+            </picture>
+          </a>
+          <p class="logo-slogan">Технологии умного цвета</p>
+
+          <a href="https://www.2stn.ru/" class="link">
+            Группа Компаний "Два Стахановца"
+          </a>
+        </div>
+
+        <nav
+          class="footer__content footer__content--col"
+          aria-label="Навигация по продукту"
+        >
+          <h4 class="footer__content-title">Продукт</h4>
+          <a class="link link--muted" href="/#for-whom">Для колористов</a>
+          <a class="link link--muted" href="/#for-whom">Для руководителей</a>
+          <a class="link link--muted" href="/#tariffs">Тарифы</a>
+        </nav>
+
+        <nav class="footer__content footer__content--col" aria-label="Ресурсы">
+          <h4 class="footer__content-title">Ресурсы</h4>
+          <a class="link link--muted" href="/#knowledge">Документация</a>
+          <a class="link link--muted" href="/#news">Новости</a>
+          <a class="link link--muted" href="/about.html">О компании</a>
+        </nav>
+
+        <address class="footer__content footer__content--col">
+          <h4 class="footer__content-title">Контакты</h4>
+          <a class="link link--muted" href="mailto:info@startcolor.ru">
+            <i class="icon icon--sm"
+              ><svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.3334 2.66699H2.66671C1.93033 2.66699 1.33337 3.26395 1.33337 4.00033V12.0003C1.33337 12.7367 1.93033 13.3337 2.66671 13.3337H13.3334C14.0698 13.3337 14.6667 12.7367 14.6667 12.0003V4.00033C14.6667 3.26395 14.0698 2.66699 13.3334 2.66699Z"
+                  stroke="#6B7280"
+                  stroke-width="1.33333"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M14.6667 4.66699L8.68671 8.46699C8.48089 8.59594 8.24292 8.66433 8.00004 8.66433C7.75716 8.66433 7.51919 8.59594 7.31337 8.46699L1.33337 4.66699"
+                  stroke="#6B7280"
+                  stroke-width="1.33333"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </i>
+            info@startcolor.ru
+          </a>
+          <a class="link link--muted" href="tel:+79000297729">
+            <i class="icon icon--sm"
+              ><svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_277_3036)">
+                  <path
+                    d="M14.6667 11.2797V13.2797C14.6675 13.4654 14.6294 13.6492 14.555 13.8193C14.4807 13.9894 14.3716 14.1421 14.2348 14.2676C14.0979 14.3932 13.9364 14.4887 13.7605 14.5482C13.5847 14.6077 13.3983 14.6298 13.2134 14.6131C11.1619 14.3902 9.19137 13.6892 7.46004 12.5664C5.84926 11.5428 4.48359 10.1772 3.46004 8.56641C2.33336 6.82721 1.6322 4.84707 1.41337 2.78641C1.39671 2.60205 1.41862 2.41625 1.4777 2.24082C1.53679 2.0654 1.63175 1.9042 1.75655 1.76749C1.88134 1.63077 2.03324 1.52155 2.20256 1.44675C2.37189 1.37196 2.55493 1.33325 2.74004 1.33307H4.74004C5.06357 1.32989 5.37723 1.44446 5.62254 1.65543C5.86786 1.8664 6.02809 2.15937 6.07337 2.47974C6.15779 3.11978 6.31434 3.74822 6.54004 4.35307C6.62973 4.59169 6.64915 4.85102 6.59597 5.10033C6.5428 5.34964 6.41928 5.57848 6.24004 5.75974L5.39337 6.60641C6.34241 8.27544 7.72434 9.65737 9.39337 10.6064L10.24 9.75974C10.4213 9.5805 10.6501 9.45697 10.8994 9.4038C11.1488 9.35063 11.4081 9.37004 11.6467 9.45974C12.2516 9.68544 12.88 9.84199 13.52 9.92641C13.8439 9.97209 14.1396 10.1352 14.3511 10.3847C14.5625 10.6343 14.6748 10.9528 14.6667 11.2797Z"
+                    stroke="#6B7280"
+                    stroke-width="1.33333"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_277_3036">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </i>
+            +7 900 029 77 29
+          </a>
+        </address>
+
+        <div class="footer__agreements">
+          <a class="link" href="/privacy.html"> Политика конфиденциальности </a>
+          <a class="link" href="/agreement.html">
+            Пользовательское соглашение
+          </a>
+        </div>
+
+        <div class="footer__copyright">
+          &copy; 2026 StartColor. Все права защищены.
+        </div>
+      </div>
+    </footer>
+
+    <div
+      id="cookiesBanner"
+      class="cookies-banner"
+      role="dialog"
+      aria-modal="false"
+      aria-labelledby="cookies-banner-title"
+      aria-describedby="cookies-banner-desc"
+      aria-live="polite"
+      hidden
+    >
+      <div class="cookies-banner__card">
+        <div class="cookies-banner__icon" aria-hidden="true">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 2C13.0111 2 13.9778 2.19914 14.866 2.55769C14.7472 2.82814 14.6834 3.12598 14.6834 3.43902C14.6834 4.71808 15.7209 5.75561 17 5.75561C17.313 5.75561 17.6109 5.69181 17.8813 5.57301C18.6113 6.84616 19.0244 8.33131 19.0244 9.90244C19.0244 11.3902 18.6651 12.7933 18.0268 14.0268C17.3886 15.2603 16.4923 16.2763 15.4097 17.0585C14.3272 17.8408 13.0879 18.3643 11.7829 18.5874C10.4779 18.8105 9.14071 18.7273 7.87073 18.3435C6.60075 17.9598 5.43493 17.2852 4.46683 16.376C3.49873 15.4668 2.75277 14.3476 2.28868 13.1049C1.82459 11.8623 1.65429 10.5299 1.7905 9.20815C1.9267 7.88642 2.36592 6.60973 3.0739 5.4739C3.78187 4.33807 4.73984 3.37208 5.87463 2.64976C6.95409 1.96283 8.18761 1.53412 9.4878 1.39805C10.2902 2.37883 11.1995 3.37561 12 2Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <circle cx="8" cy="9" r="1" fill="currentColor" />
+            <circle cx="14" cy="13" r="1" fill="currentColor" />
+            <circle cx="9" cy="14" r="1" fill="currentColor" />
+          </svg>
+        </div>
+
+        <div class="cookies-banner__content">
+          <h2 id="cookies-banner-title" class="cookies-banner__title">
+            Мы заботимся о вашей конфиденциальности
+          </h2>
+          <p id="cookies-banner-desc" class="cookies-banner__text">
+            Мы используем файлы cookie для улучшения работы сайта, анализа
+            трафика и персонализации контента. Продолжая использовать сайт, вы
+            соглашаетесь с нашей
+            <a href="/privacy.html" class="link">Политикой конфиденциальности</a
+            >.
+          </p>
+        </div>
+
+        <div class="cookies-banner__actions">
+          <button
+            type="button"
+            class="btn btn--default cookies-banner__btn"
+            data-cookies-action="accept"
+          >
+            Принять
+          </button>
+          <button
+            type="button"
+            class="btn btn--outline cookies-banner__btn"
+            data-cookies-action="decline"
+          >
+            Отклонить
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/scripts/main.js" defer></script>
+  </body>
+</html>

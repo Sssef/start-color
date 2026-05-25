@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="StartColor — ИИ-система для профессиональной колеровки."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;700&family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+    />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <link rel="stylesheet" href="/src/styles/pages/inner-page.css" />
+    <title>О Компании StarColor</title>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <linearGradient id="grad-brand" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="var(--brand)" />
+          <stop offset="100%" stop-color="var(--brand-soft)" />
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <header class="header">
+      <div class="header__row">
+        <div class="header__menu-toggle">
+          <button
+            id="open-sidebar-button"
+            aria-label="open sidebar"
+            aria-expanded="false"
+            aria-controls="navbar"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="40px"
+              viewBox="0 -960 960 960"
+              width="40px"
+              fill="#0075c9"
+            >
+              <path
+                d="M165.13-254.62q-10.68 0-17.9-7.26-7.23-7.26-7.23-18t7.23-17.86q7.22-7.13 17.9-7.13h629.74q10.68 0 17.9 7.26 7.23 7.26 7.23 18t-7.23 17.87q-7.22 7.12-17.9 7.12H165.13Zm0-200.25q-10.68 0-17.9-7.27-7.23-7.26-7.23-17.99 0-10.74 7.23-17.87 7.22-7.13 17.9-7.13h629.74q10.68 0 17.9 7.27 7.23 7.26 7.23 17.99 0 10.74-7.23 17.87-7.22 7.13-17.9 7.13H165.13Zm0-200.26q-10.68 0-17.9-7.26-7.23-7.26-7.23-18t7.23-17.87q7.22-7.12 17.9-7.12h629.74q10.68 0 17.9 7.26 7.23 7.26 7.23 18t-7.23 17.86q-7.22 7.13-17.9 7.13H165.13Z"
+              />
+            </svg>
+          </button>
+
+          <button id="close-sidebar-button" aria-label="close sidebar">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="40px"
+              viewBox="0 -960 960 960"
+              width="40px"
+              fill="#0075c9"
+            >
+              <path
+                d="m480-444.62-209.69 209.7q-7.23 7.23-17.5 7.42-10.27.19-17.89-7.42-7.61-7.62-7.61-17.7 0-10.07 7.61-17.69L444.62-480l-209.7-209.69q-7.23-7.23-7.42-17.5-.19-10.27 7.42-17.89 7.62-7.61 17.7-7.61 10.07 0 17.69 7.61L480-515.38l209.69-209.7q7.23-7.23 17.5-7.42 10.27-.19 17.89 7.42 7.61 7.62 7.61 17.7 0 10.07-7.61 17.69L515.38-480l209.7 209.69q7.23 7.23 7.42 17.5.19 10.27-7.42 17.89-7.62 7.61-17.7 7.61-10.07 0-17.69-7.61L480-444.62Z"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <nav id="navbar" class="navbar">
+          <ul class="navbar__list">
+            <li class="navbar__item">
+              <a class="navbar__link" href="/about.html">О компании</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="/#tools">Оборудование</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="/#analytics">ПО и аналитика</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="/#tariffs">Тарифы</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="/#press">Пресса о нас</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="/about.html#contacts">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div id="overlay" aria-hidden="true"></div>
+
+        <div class="header__toolbar">
+          <div class="lang-picker" id="languagePicker">
+            <button
+              id="languagePickerButton"
+              class="lang-picker__trigger"
+              type="button"
+              aria-label="Выбор языка"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              aria-controls="languagePickerList"
+            >
+              <i class="lang-picker__globe" aria-hidden="true"> </i>
+              <span id="languagePickerValue" class="lang-picker__value"
+                >RU</span
+              >
+              <i
+                class="lang-picker__chevron chevron chevron--down chevron--sm"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <ul
+              id="languagePickerList"
+              class="lang-picker__list"
+              role="listbox"
+              aria-label="Язык интерфейса"
+              tabindex="-1"
+              hidden
+            >
+              <li class="lang-picker__item">
+                <button
+                  class="lang-picker__option"
+                  type="button"
+                  role="option"
+                  data-lang="ru"
+                  aria-selected="true"
+                >
+                  RU
+                </button>
+              </li>
+              <li class="lang-picker__item">
+                <button
+                  class="lang-picker__option"
+                  type="button"
+                  role="option"
+                  data-lang="en"
+                  aria-selected="false"
+                >
+                  EN
+                </button>
+              </li>
+              <li class="lang-picker__item">
+                <button
+                  class="lang-picker__option"
+                  type="button"
+                  role="option"
+                  data-lang="ar"
+                  aria-selected="false"
+                >
+                  AR
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="toggle">
+            <button
+              id="themeToggler"
+              class="toggle__btn theme-toggler"
+              type="button"
+              aria-label="Переключить цветовую тему"
+            >
+              <i class="toggle__icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="logo logo--lg logo--centered">
+            <div class="logo__img">
+              <picture>
+                <source srcset="/src/assets/images/logo.svg" media="" />
+                <img
+                  decoding="async"
+                  src="/src/assets/images/logo.svg"
+                  alt="StartColor"
+                />
+              </picture>
+            </div>
+            <div class="logo__slogan">
+              <p>Превращаем ремесло в технологию.</p>
+              <p>Цифруем ваш опыт колеровки.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="inner-hero">
+        <div class="container flex-container">
+          <div class="inner-hero__header">
+            <h1 class="inner-hero__title">О компании</h1>
+            <p class="inner-hero__subtitle">Кто мы | Наша цель</p>
+          </div>
+
+          <div class="section__content section__content--full">
+            <div class="content">
+              <p class="text">
+                <strong>ООО СтартКолор (StartColor)</strong> — это динамично
+                развивающаяся компания, которая входит в группу компаний
+                <a href="https://www.2stn.ru" class="link">
+                  <strong>ООО "Два Стахановца"</strong>
+                </a>
+                , специализирующаяся на разработке программного обеспечения для
+                автоколористов.
+              </p>
+
+              <p class="text">
+                Мы активно работаем и внедряем искусственный интеллект, что
+                значительно ускоряет процессы и повышает эффективность работы с
+                цветами и формулами. Использование AI позволяет нам создавать
+                решения, которые не только автоматизируют рутинные задачи, но и
+                обеспечивают более точный и быстрый подбор цветовых решений, что
+                критически важно в отрасли автоколористики.
+              </p>
+
+              <p class="text">
+                Наша цель — создать инновационные решения, которые значительно
+                упрощают и оптимизируют процесс работы с цветами и формулами,
+                позволяя специалистам сосредоточиться на творческих аспектах
+                своей работы.
+              </p>
+
+              <p class="text">
+                StartColor была основана командой профессионалов с многолетним
+                опытом в области программирования и колористики. Мы понимаем,
+                что точность и скорость в работе с цветами имеют решающее
+                значение для достижения высококачественных результатов. Поэтому
+                мы разрабатываем приложения, которые не только автоматизируют
+                рутинные задачи, но и предоставляют пользователям мощные
+                инструменты для анализа и выбора цветовых решений.
+              </p>
+            </div>
+
+            <div class="sticker">
+              <picture class="sticker__img">
+                <source
+                  srcset="/src/assets/images/about/start-color-co.png"
+                  media=""
+                />
+                <img
+                  decoding="async"
+                  src="/src/assets/images/about/start-color-co.png"
+                  alt="Наша команда"
+                />
+              </picture>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container flex-container">
+          <div class="section__header">
+            <h2 class="section__title">Продукты и услуги</h2>
+            <p class="section__subtitle">
+              Что включают наши программные решения
+            </p>
+          </div>
+
+          <div class="section__content">
+            <div class="card">
+              <div class="card__body card__body--grid">
+                <div class="card__body-part">
+                  <span class="card__strong-text">
+                    <i class="icon brand"
+                      ><svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 7V21"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M3 18C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V17C22 17.2652 21.8946 17.5196 21.7071 17.7071C21.5196 17.8946 21.2652 18 21 18H15C14.2044 18 13.4413 18.3161 12.8787 18.8787C12.3161 19.4413 12 20.2044 12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3Z"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </i>
+                    Интуитивно понятные интерфейсы
+                  </span>
+                  <p class="card__text">
+                    Создаем приложения с удобным и понятным интерфейсом, что
+                    позволяет пользователям быстро осваивать функционал и
+                    эффективно использовать его в своей работе.
+                  </p>
+                </div>
+                <div class="card__body-part">
+                  <span class="card__strong-text">
+                    <i class="icon brand"
+                      ><svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3 3V19C3 19.5304 3.21071 20.0391 3.58579 20.4142C3.96086 20.7893 4.46957 21 5 21H21"
+                          stroke="#54C8E8"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M18 17V9"
+                          stroke="#54C8E8"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M13 17V5"
+                          stroke="#54C8E8"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8 17V14"
+                          stroke="#54C8E8"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </i>
+                    Аналитика и отчетность
+                  </span>
+                  <p class="card__text">
+                    Предоставляем инструменты для анализа работы, что помогает
+                    пользователям отслеживать эффективность и оптимизировать
+                    процессы.
+                  </p>
+                </div>
+                <div class="card__body-part">
+                  <span class="card__strong-text">
+                    <i class="icon brand"
+                      ><svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 5.00005C12.0012 4.60008 11.9224 4.20391 11.7682 3.83485C11.614 3.46579 11.3876 3.13128 11.1023 2.851C10.8169 2.57072 10.4784 2.35032 10.1067 2.20278C9.73491 2.05524 9.33739 1.98353 8.93751 1.99186C8.53762 2.0002 8.14344 2.08841 7.77815 2.25132C7.41286 2.41422 7.08383 2.64853 6.81041 2.94045C6.537 3.23238 6.32472 3.57604 6.18606 3.9512C6.04741 4.32637 5.98517 4.72548 6.00301 5.12505C5.41521 5.27619 4.86952 5.5591 4.40724 5.95236C3.94497 6.34562 3.57825 6.83892 3.33486 7.3949C3.09146 7.95087 2.97777 8.55494 3.0024 9.16136C3.02703 9.76778 3.18933 10.3606 3.47701 10.8951C2.97119 11.306 2.57344 11.8343 2.31835 12.434C2.06327 13.0337 1.95857 13.6866 2.01338 14.336C2.06818 14.9854 2.28083 15.6116 2.63282 16.1601C2.98481 16.7085 3.46548 17.1627 4.03301 17.4831C3.96293 18.0253 4.00475 18.5761 4.1559 19.1016C4.30705 19.627 4.56431 20.1159 4.9118 20.538C5.25929 20.9601 5.68962 21.3065 6.17623 21.5558C6.66284 21.8051 7.19539 21.952 7.74099 21.9874C8.28659 22.0228 8.83365 21.946 9.3484 21.7617C9.86315 21.5774 10.3346 21.2895 10.7338 20.9158C11.1329 20.5421 11.4512 20.0906 11.669 19.5891C11.8868 19.0876 11.9994 18.5468 12 18V5.00005Z"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M12 5.00005C11.9988 4.60008 12.0776 4.20391 12.2318 3.83485C12.386 3.46579 12.6124 3.13128 12.8977 2.851C13.1831 2.57072 13.5216 2.35032 13.8934 2.20278C14.2651 2.05524 14.6626 1.98353 15.0625 1.99186C15.4624 2.0002 15.8566 2.08841 16.2219 2.25132C16.5872 2.41422 16.9162 2.64853 17.1896 2.94045C17.463 3.23238 17.6753 3.57604 17.814 3.9512C17.9526 4.32637 18.0149 4.72548 17.997 5.12505C18.5848 5.27619 19.1305 5.5591 19.5928 5.95236C20.0551 6.34562 20.4218 6.83892 20.6652 7.3949C20.9086 7.95087 21.0223 8.55494 20.9976 9.16136C20.973 9.76778 20.8107 10.3606 20.523 10.8951C21.0288 11.306 21.4266 11.8343 21.6817 12.434C21.9368 13.0337 22.0415 13.6866 21.9867 14.336C21.9318 14.9854 21.7192 15.6116 21.3672 16.1601C21.0152 16.7085 20.5345 17.1627 19.967 17.4831C20.0371 18.0253 19.9953 18.5761 19.8441 19.1016C19.693 19.627 19.4357 20.1159 19.0882 20.538C18.7407 20.9601 18.3104 21.3065 17.8238 21.5558C17.3372 21.8051 16.8046 21.952 16.259 21.9874C15.7134 22.0228 15.1664 21.946 14.6516 21.7617C14.1369 21.5774 13.6654 21.2895 13.2663 20.9158C12.8671 20.5421 12.5488 20.0906 12.331 19.5891C12.1133 19.0876 12.0006 18.5468 12 18V5.00005Z"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M15 13C14.1604 12.7047 13.4273 12.167 12.8933 11.455C12.3593 10.743 12.0485 9.88867 12 9C11.9515 9.88867 11.6407 10.743 11.1067 11.455C10.5727 12.167 9.83956 12.7047 9 13"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M17.599 6.5C17.841 6.08059 17.9779 5.60882 17.998 5.125"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M6.00299 5.125C6.02277 5.60873 6.15932 6.0805 6.40099 6.5"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M3.47699 10.896C3.65993 10.747 3.85569 10.6145 4.06199 10.5"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M19.938 10.5C20.1443 10.6145 20.34 10.747 20.523 10.896"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M5.99999 18C5.31082 18.0003 4.63326 17.8226 4.03299 17.484"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M19.967 17.484C19.3667 17.8226 18.6892 18.0003 18 18"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </i>
+                    Алгоритмы для точного подбора цветов
+                  </span>
+                  <p class="card__text">
+                    Создаем приложения с удобным и понятным интерфейсом, что
+                    позволяет пользователям быстро осваивать функционал и
+                    эффективно использовать его в своей работе.
+                  </p>
+                </div>
+                <div class="card__body-part">
+                  <span class="card__strong-text">
+                    <i class="icon brand"
+                      ><svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M16 21V19C16 17.9391 15.5786 16.9217 14.8284 16.1716C14.0783 15.4214 13.0609 15 12 15H6C4.93913 15 3.92172 15.4214 3.17157 16.1716C2.42143 16.9217 2 17.9391 2 19V21"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M22 21V19C21.9993 18.1137 21.7044 17.2528 21.1614 16.5523C20.6184 15.8519 19.8581 15.3516 19 15.13"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88"
+                          stroke="#0075C9"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </i>
+                    Персонализированные рекомендации:
+                  </span>
+                  <p class="card__text">
+                    С помощью ИИ мы можем предлагать пользователям
+                    индивидуальные решения, основанные на их предыдущем опыте и
+                    предпочтениях. Это делает процесс выбора цветов более
+                    интуитивным и быстрым.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contacts">
+        <div class="container flex-container">
+          <div class="section__header">
+            <h2 class="section__title">ИТ-аккредитация</h2>
+            <p class="section__subtitle">Реквизиты | Контакты</p>
+          </div>
+          <div class="section__content">
+            <div class="card">
+              <div class="card__body card__body--grid">
+                <div class="card__body-part">
+                  <span class="card__strong-text">
+                    Виды ИТ-деятельности согласно приказу Минцифры:
+                  </span>
+                  <p class="card__text">1.01, 1.02</p>
+                </div>
+
+                <div class="card__body-part">
+                  <span class="card__strong-text">ИНН:</span>
+                  <p class="card__text">7447319375</p>
+                </div>
+
+                <div class="card__body-part">
+                  <span class="card__strong-text">Код ОКВЭД: </span>
+                  <p class="card__text">
+                    62.01 Разработка компьютерного программного обеспечения
+                  </p>
+                </div>
+
+                <div class="card__body-part">
+                  <span class="card__strong-text">Юридический адрес: </span>
+                  <p class="card__text">
+                    454081, Челябинская область, г. о. Челябинский, г.
+                    Челябинск, ул. Турбинная, д. 3
+                  </p>
+                </div>
+
+                <div class="card__body-part">
+                  <span class="card__strong-text">Ссылки: </span>
+                  <p class="card__text">
+                    <a
+                      href="https://reestr.digital.gov.ru/reestr/4036107/?sphrase_id=18602211"
+                      class="link"
+                    >
+                      Страница в реестре программного обеспечения
+                    </a>
+                  </p>
+                </div>
+
+                <div class="card__body-part">
+                  <span class="card__strong-text">Генеральный директор: </span>
+                  <p class="card__text">Кузнецов Александр Иванович</p>
+                </div>
+
+                <div class="card__body-part">
+                  <span class="card__strong-text"> Эл.почта: </span>
+                  <p class="card__text">
+                    <a href="mailto:info@startcolor.ru" class="link"
+                      >info@startcolor.ru</a
+                    >
+                  </p>
+                </div>
+
+                <div class="card__body-part">
+                  <span class="card__strong-text">Телефон:</span>
+                  <p class="card__text">
+                    <a href="tel:+ 79000297729" class="link"
+                      >+ 7 900 029 77 29</a
+                    >
+                  </p>
+                </div>
+
+                <div class="card__body-part card__body-part--full">
+                  <span class="card__strong-text">Технологический стек:</span>
+                  <p class="card__text">
+                    В качестве основного языка программирования используется C++
+                    стандарта C++20, для разработки графического интерфейса
+                    применяется фреймворк Qt версии 6.8.3 (с поддержкой C++ и
+                    QML), в качестве систем контроля версий и совместной
+                    разработки используется Git, для компиляции кода под целевые
+                    платформы Windows и Linux применяются компиляторы GCC и
+                    MSVC, а также задействована система сборки CMake и
+                    интегрированная среда разработки Qt Creator.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container grid-container">
+        <div class="footer__content footer__content--col">
+          <a class="logo" href="/">
+            <picture>
+              <source srcset="/src/assets/images/logo.svg" media="" />
+              <img
+                decoding="async"
+                src="/src/assets/images/logo.svg"
+                alt="StartColor"
+              />
+            </picture>
+          </a>
+          <p class="logo-slogan">Технологии умного цвета</p>
+
+          <a href="https://www.2stn.ru/" class="link">
+            Группа Компаний "Два Стахановца"
+          </a>
+        </div>
+
+        <nav
+          class="footer__content footer__content--col"
+          aria-label="Навигация по продукту"
+        >
+          <h4 class="footer__content-title">Продукт</h4>
+          <a class="link link--muted" href="/#for-whom">Для колористов</a>
+          <a class="link link--muted" href="/#for-whom">Для руководителей</a>
+          <a class="link link--muted" href="/#tariffs">Тарифы</a>
+        </nav>
+
+        <nav class="footer__content footer__content--col" aria-label="Ресурсы">
+          <h4 class="footer__content-title">Ресурсы</h4>
+          <a class="link link--muted" href="/#knowledge">Документация</a>
+          <a class="link link--muted" href="/#news">Новости</a>
+          <a class="link link--muted" href="/about.html">О компании</a>
+        </nav>
+
+        <address class="footer__content footer__content--col">
+          <h4 class="footer__content-title">Контакты</h4>
+          <a class="link link--muted" href="mailto:info@startcolor.ru">
+            <i class="icon icon--sm"
+              ><svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.3334 2.66699H2.66671C1.93033 2.66699 1.33337 3.26395 1.33337 4.00033V12.0003C1.33337 12.7367 1.93033 13.3337 2.66671 13.3337H13.3334C14.0698 13.3337 14.6667 12.7367 14.6667 12.0003V4.00033C14.6667 3.26395 14.0698 2.66699 13.3334 2.66699Z"
+                  stroke="#6B7280"
+                  stroke-width="1.33333"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M14.6667 4.66699L8.68671 8.46699C8.48089 8.59594 8.24292 8.66433 8.00004 8.66433C7.75716 8.66433 7.51919 8.59594 7.31337 8.46699L1.33337 4.66699"
+                  stroke="#6B7280"
+                  stroke-width="1.33333"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </i>
+            info@startcolor.ru
+          </a>
+          <a class="link link--muted" href="tel:+79000297729">
+            <i class="icon icon--sm"
+              ><svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_277_3036)">
+                  <path
+                    d="M14.6667 11.2797V13.2797C14.6675 13.4654 14.6294 13.6492 14.555 13.8193C14.4807 13.9894 14.3716 14.1421 14.2348 14.2676C14.0979 14.3932 13.9364 14.4887 13.7605 14.5482C13.5847 14.6077 13.3983 14.6298 13.2134 14.6131C11.1619 14.3902 9.19137 13.6892 7.46004 12.5664C5.84926 11.5428 4.48359 10.1772 3.46004 8.56641C2.33336 6.82721 1.6322 4.84707 1.41337 2.78641C1.39671 2.60205 1.41862 2.41625 1.4777 2.24082C1.53679 2.0654 1.63175 1.9042 1.75655 1.76749C1.88134 1.63077 2.03324 1.52155 2.20256 1.44675C2.37189 1.37196 2.55493 1.33325 2.74004 1.33307H4.74004C5.06357 1.32989 5.37723 1.44446 5.62254 1.65543C5.86786 1.8664 6.02809 2.15937 6.07337 2.47974C6.15779 3.11978 6.31434 3.74822 6.54004 4.35307C6.62973 4.59169 6.64915 4.85102 6.59597 5.10033C6.5428 5.34964 6.41928 5.57848 6.24004 5.75974L5.39337 6.60641C6.34241 8.27544 7.72434 9.65737 9.39337 10.6064L10.24 9.75974C10.4213 9.5805 10.6501 9.45697 10.8994 9.4038C11.1488 9.35063 11.4081 9.37004 11.6467 9.45974C12.2516 9.68544 12.88 9.84199 13.52 9.92641C13.8439 9.97209 14.1396 10.1352 14.3511 10.3847C14.5625 10.6343 14.6748 10.9528 14.6667 11.2797Z"
+                    stroke="#6B7280"
+                    stroke-width="1.33333"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_277_3036">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </i>
+            +7 900 029 77 29
+          </a>
+        </address>
+
+        <div class="footer__agreements">
+          <a class="link" href="/privacy.html"> Политика конфиденциальности </a>
+          <a class="link" href="/agreement.html">
+            Пользовательское соглашение
+          </a>
+        </div>
+
+        <div class="footer__copyright">
+          &copy; 2026 StartColor. Все права защищены.
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/scripts/pages/inner-page.js" defer></script>
+  </body>
+</html>

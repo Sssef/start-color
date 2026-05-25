@@ -1,0 +1,18 @@
+.tools-card {
+  height: 100%;
+  position: relative;
+  padding: 0;
+  gap: 0;
+
+  .card__media {
+    video,
+    picture,
+    img {
+      min-height: 260px;
+    }
+  }
+
+  .card__body {
+    padding: var(--card-pad-fixed);
+  }
+}

@@ -1,0 +1,33 @@
+/* List */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--list-gap);
+}
+.list--num {
+  .list__item {
+    list-style-type: auto;
+    list-style-position: inside;
+
+    &:before {
+      content: none;
+    }
+  }
+}
+.list__item {
+  line-height: var(--line-h-default);
+  color: var(--font-clr-body);
+  position: relative;
+  list-style: none;
+  font-family: var(--font-fm-body);
+  padding-inline-start: var(--list-gap);
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 2px;
+    height: 10px;
+  }
+}

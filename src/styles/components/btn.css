@@ -100,8 +100,8 @@
     transition: opacity 0.3s ease;
     pointer-events: none;
     mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
+      linear-gradient(var(--white) 0 0) content-box,
+      linear-gradient(var(--white) 0 0);
     mask-composite: exclude;
   }
 
@@ -139,4 +139,3 @@
 .btn__icon--reverse {
   order: 1;
 }
-

@@ -4,10 +4,6 @@
   flex-direction: column;
   height: auto;
   justify-content: center;
-
-  @media (min-width: 992px) {
-    height: stretch;
-  }
 }
 .sticker__figure {
   margin: 0;

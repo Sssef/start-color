@@ -19,6 +19,7 @@
 .card--mobile-paddingless {
   padding: 0;
   gap: 0;
+  height: auto;
 
   .card__body {
     gap: 0;

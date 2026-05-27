@@ -133,6 +133,7 @@
 }
 .gslide-description.description-bottom {
   max-width: min-content !important;
+  background-color: var(--bg-elevated);
 }
 
 /* Utils */

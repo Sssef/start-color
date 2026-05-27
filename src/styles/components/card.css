@@ -167,6 +167,7 @@
   font-weight: 700;
   display: flex;
   gap: 10px;
+  color: var(--font-clr-body);
 }
 .card__body-part {
   display: flex;

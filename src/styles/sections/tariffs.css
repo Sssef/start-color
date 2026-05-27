@@ -162,6 +162,7 @@
 }
 .tariffs__toggle-label {
   font-size: var(--font-sz-xs);
+  color: var(--font-clr-body);
 }
 .tariffs__toggler {
   width: 3.5rem;

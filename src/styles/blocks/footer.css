@@ -32,6 +32,7 @@
 .footer__content-title {
   margin-bottom: var(--gap-default);
   font-weight: var(--font-wgt-semi);
+  color: var(--font-clr-body);
 }
 .footer__copyright {
   font-size: var(--font-sz-xxs);

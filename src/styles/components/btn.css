@@ -99,10 +99,17 @@
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
+
+    /* Стандартная маска */
     mask:
-      linear-gradient(var(--white) 0 0) content-box,
-      linear-gradient(var(--white) 0 0);
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
     mask-composite: exclude;
+    /* WebKit-маска с правильным значением */
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
   }
 
   &:hover {

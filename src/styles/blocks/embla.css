@@ -29,6 +29,9 @@
     }
   }
 }
+[dir="rtl"] .news-controls {
+  margin-left: 20px;
+}
 .embla__controls {
   text-align: end;
   gap: var(--gap-default);

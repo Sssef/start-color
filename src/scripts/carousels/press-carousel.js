@@ -1,4 +1,5 @@
 import { EmblaCarousel, setupEmblaButtons } from "./embla-setup.js";
+import { getEmblaOptions, watchRTL } from "@scripts/utils/rtl.js";
 
 export default function initPressCarousel() {
   const rootNode = document.querySelector("#press .embla.press-list");
@@ -10,13 +11,17 @@ export default function initPressCarousel() {
   const controlsNode = rootNode.querySelector(".embla__controls");
   if (!viewportNode || !prevButtonNode || !nextButtonNode) return;
 
-  const emblaApi = EmblaCarousel(viewportNode, {
-    axis: "x",
-    align: "start",
-    containScroll: "trimSnaps",
-    slidesToScroll: 1,
-    loop: false,
-  });
+  const emblaApi = EmblaCarousel(
+    viewportNode,
+    getEmblaOptions({
+      axis: "x",
+      align: "start",
+      containScroll: "trimSnaps",
+      slidesToScroll: 1,
+      loop: false,
+    }),
+  );
 
   setupEmblaButtons(emblaApi, prevButtonNode, nextButtonNode, controlsNode);
+  watchRTL(emblaApi);
 }

@@ -1,4 +1,5 @@
 import { EmblaCarousel, setupEmblaButtons } from "./embla-setup.js";
+import { getEmblaOptions, watchRTL } from "@scripts/utils/rtl.js";
 
 export default function initNewsCarousel() {
   const rootNode = document.querySelector(".section-news .embla.news-list");
@@ -10,7 +11,7 @@ export default function initNewsCarousel() {
   const controlsNode = rootNode.querySelector(".embla__controls");
   if (!viewportNode || !prevButtonNode || !nextButtonNode) return;
 
-  const emblaApi = EmblaCarousel(viewportNode, {
+  const baseOptions = {
     axis: "x",
     align: "start",
     slidesToScroll: 1,
@@ -21,7 +22,11 @@ export default function initNewsCarousel() {
         containScroll: true,
       },
     },
-  });
+  };
 
+  const emblaApi = EmblaCarousel(viewportNode, getEmblaOptions(baseOptions));
   setupEmblaButtons(emblaApi, prevButtonNode, nextButtonNode, controlsNode);
+
+  // 🔁 Реинициализация при смене dir
+  watchRTL(emblaApi);
 }

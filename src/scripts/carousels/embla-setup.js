@@ -1,5 +1,13 @@
 import EmblaCarousel from "embla-carousel";
 
+/**
+ * Настраивает кнопки навигации для Embla Carousel
+ * @param {EmblaCarouselType} emblaApi - экземпляр Embla
+ * @param {HTMLElement} prevButtonNode - кнопка "назад"
+ * @param {HTMLElement} nextButtonNode - кнопка "вперёд"
+ * @param {HTMLElement} [controlsNode] - контейнер кнопок (для скрытия)
+ * @returns {Function} - функция очистки (teardown)
+ */
 function setupEmblaButtons(
   emblaApi,
   prevButtonNode,

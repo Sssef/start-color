@@ -19,16 +19,16 @@ export default defineConfig(({ mode }) => {
     base: baseFromEnv || "/",
 
     // Алиасы для удобных импортов
-    // resolve: {
-    //   alias: {
-    //     "@": resolve(rootDir, "./src"),
-    //     "@styles": resolve(rootDir, "./src/styles"),
-    //     "@scripts": resolve(rootDir, "./src/scripts"),
-    //     "@assets": resolve(rootDir, "./src/assets"),
-    //     "@images": resolve(rootDir, "./src/assets/images"),
-    //     "@icons": resolve(rootDir, "./src/assets/icons"),
-    //   },
-    // },
+    resolve: {
+      alias: {
+        "@": resolve(rootDir, "./src"),
+        "@styles": resolve(rootDir, "./src/styles"),
+        "@scripts": resolve(rootDir, "./src/scripts"),
+        "@assets": resolve(rootDir, "./src/assets"),
+        "@images": resolve(rootDir, "./src/assets/images"),
+        "@icons": resolve(rootDir, "./src/assets/icons"),
+      },
+    },
 
     // Сервер разработки
     server: {

@@ -132,8 +132,8 @@
 
   .hero__counter {
     position: absolute;
-    top: 45%;
-    inset-block-start: 75%;
+    top: 50%;
+    left: 80%;
   }
   .hero__img {
     min-width: 750px;

@@ -102,7 +102,7 @@
   .hero__counter {
     position: relative;
     top: initial;
-    left: initial;
+    inset-inline-start: initial;
     min-width: 65%;
     margin: -55px auto 0;
   }
@@ -127,13 +127,13 @@
 @media (min-width: 1660px) {
   [dir="rtl"] .hero__counter {
     top: 50%;
-    left: 50%;
+    inset-inline-start: 50%;
   }
 
   .hero__counter {
     position: absolute;
     top: 45%;
-    left: 75%;
+    inset-block-start: 75%;
   }
   .hero__img {
     min-width: 750px;

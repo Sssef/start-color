@@ -86,6 +86,16 @@
   overflow-y: auto;
 }
 
+[dir="rtl"] .navbar {
+  inset-inline-end: auto;
+  inset-inline-start: 0;
+  transform: translateX(-100%);
+
+  &.show {
+    transform: translateX(0);
+  }
+}
+
 .navbar.show {
   transform: translateX(0);
   opacity: 1;
@@ -172,7 +182,8 @@
     display: none;
   }
 
-  .navbar {
+  .navbar,
+  [dir="rtl"] .navbar {
     position: static;
     transform: none;
     height: auto;

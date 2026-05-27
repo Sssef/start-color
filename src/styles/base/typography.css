@@ -46,3 +46,9 @@ address {
   font-size: var(--font-sz-xs);
   font-family: var(--font-fm-heading);
 }
+
+.hero,
+.section,
+.inner-section {
+  overflow-x: hidden;
+}

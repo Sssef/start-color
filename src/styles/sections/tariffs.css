@@ -206,7 +206,7 @@
 .tariffs-chip {
   position: absolute;
   top: -16px;
-  left: 49%;
+  inset-inline-start: 49%;
   transform: translateX(-50%);
 }
 

@@ -75,7 +75,7 @@
 
 .lang-picker__list {
   position: absolute;
-  right: -5px;
+  inset-inline-end: -5px;
   top: 100%;
   width: 67px;
   background-color: var(--bg-elevated);
@@ -113,7 +113,6 @@
   outline: 2px solid var(--brand-soft);
   outline-offset: 3px;
 }
-
 
 .container {
   max-width: var(--container-w);

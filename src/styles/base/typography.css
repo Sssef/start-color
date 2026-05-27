@@ -4,6 +4,7 @@
 
 html,
 body {
+  scroll-behavior: smooth;
   font-family: var(--font-fm-body);
   font-size: var(--font-sz-body);
   font-weight: var(--font-wgt-reg);

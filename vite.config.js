@@ -1,24 +1,3 @@
-// import { defineConfig } from "vite";
-// import { resolve } from "node:path";
-// import { fileURLToPath } from "node:url";
-
-// const rootDir = fileURLToPath(new URL(".", import.meta.url));
-
-// export default defineConfig({
-//   build: {
-//     rollupOptions: {
-//       input: {
-//         main: resolve(rootDir, "index.html"),
-//         about: resolve(rootDir, "about.html"),
-//         agreement: resolve(rootDir, "agreement.html"),
-//         privacy: resolve(rootDir, "privacy.html"),
-//         notFound: resolve(rootDir, "404.html"),
-//         serverError: resolve(rootDir, "500.html"),
-//       },
-//     },
-//   },
-// });
-
 import { defineConfig } from "vite";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -203,7 +182,7 @@ export default defineConfig(({ mode }) => {
 
     // Оптимизация: предзагрузка зависимостей
     optimizeDeps: {
-      include: ["embla-carousel", "glightbox", "chart.js", "countup.js"],
+      include: ["embla-carousel", "glightbox", "chart.js"],
     },
   };
 });

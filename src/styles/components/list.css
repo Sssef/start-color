@@ -14,6 +14,7 @@
     }
   }
 }
+
 .list__item {
   line-height: var(--line-h-default);
   color: var(--font-clr-body);
@@ -21,13 +22,27 @@
   list-style: none;
   font-family: var(--font-fm-body);
   padding-inline-start: var(--list-gap);
+  direction: inherit;
 
   &:before {
     content: "";
     position: absolute;
-    left: 0;
+    inset-inline-start: 0;
     top: 6px;
     width: 2px;
     height: 10px;
+  }
+}
+
+[dir="rtl"] {
+  .list__item {
+    padding-inline-end: var(--list-gap);
+
+    &:before {
+      inset-inline-start: 0;
+      inset-inline-end: auto;
+      right: 0;
+      left: auto;
+    }
   }
 }

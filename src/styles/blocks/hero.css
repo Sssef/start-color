@@ -125,6 +125,11 @@
 }
 
 @media (min-width: 1660px) {
+  [dir="rtl"] .hero__counter {
+    top: 50%;
+    left: 50%;
+  }
+
   .hero__counter {
     position: absolute;
     top: 45%;

@@ -128,7 +128,7 @@ body {
     color 0.25s ease,
     -webkit-text-fill-color 0.25s ease;
   text-decoration: none;
-  text-align: left;
+  text-align: start;
   cursor: pointer;
 
   &:hover {

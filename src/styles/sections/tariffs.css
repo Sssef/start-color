@@ -136,7 +136,7 @@
   padding-bottom: 15px;
 }
 .tariffs__note {
-  text-align: right;
+  text-align: end;
   font-size: var(--font-sz-xs);
   color: var(--font-clr-muted);
   margin-top: var(--gap-xs);

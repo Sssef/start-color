@@ -29,7 +29,6 @@
   width: auto;
 }
 
-
 /* Chevron */
 .chevron {
   min-width: var(--icon-sz-sm);
@@ -131,9 +130,14 @@
   }
 }
 
-
 /* Utils */
 .text-muted {
   color: var(--font-clr-muted);
   font-size: var(--font-sz-sm);
+}
+
+.ltr-number {
+  direction: ltr;
+  align-self: baseline;
+  font-variant-numeric: proportional-nums;
 }

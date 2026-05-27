@@ -39,7 +39,7 @@
 }
 .toggle__icon {
   position: absolute;
-  left: 4px;
+  inset-inline-start: 4px;
   top: 3px;
   border-radius: 50%;
   width: 21px;

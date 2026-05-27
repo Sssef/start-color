@@ -74,7 +74,7 @@
   font-family: var(--accordion-font-fm);
   font-size: var(--accordion-font-sz);
   font-weight: var(--font-wgt-bold);
-  text-align: left;
+  text-align: start;
   color: var(--font-clr-body);
   display: flex;
   align-items: center;
@@ -94,4 +94,9 @@
   width: 100%;
   text-align: start;
   margin-inline-start: 10px;
+}
+
+[dir="rtl"] .accordion__title {
+  margin-inline-end: 10px;
+  text-align: end;
 }

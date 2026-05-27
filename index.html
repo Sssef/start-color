@@ -24,7 +24,26 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
     />
+
+    <script>
+      (function () {
+        try {
+          const STORAGE_KEY = "start-color-theme";
+          const stored = localStorage.getItem(STORAGE_KEY);
+          const isDark = stored
+            ? stored === "dark"
+            : window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+          document.documentElement.dataset.theme = isDark ? "dark" : "light";
+        } catch {
+          // В приватном режиме localStorage может бросать ошибку
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
+
     <link rel="stylesheet" href="/src/styles/main.css" />
+
     <title>StartColor</title>
   </head>
   <body>

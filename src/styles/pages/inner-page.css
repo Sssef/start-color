@@ -1,3 +1,21 @@
+@import "@styles/base/reset.css";
+@import "@styles/base/design-tokens.css";
+@import "@styles/base/typography.css";
+
+@import "@styles/components/card.css";
+@import "@styles/components/btn.css";
+@import "@styles/components/link.css";
+@import "@styles/components/list.css";
+@import "@styles/components/toggle.css";
+
+@import "@styles/blocks/header.css";
+@import "@styles/blocks/navbar.css";
+@import "@styles/blocks/section.css";
+@import "@styles/blocks/sticker.css";
+@import "@styles/blocks/footer.css";
+
+@import "@styles/utilities/utils.css";
+
 html,
 body {
   overflow-x: initial;
@@ -168,4 +186,10 @@ section[id^="s-"] {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.doc-page {
+  .section {
+    overflow-x: initial;
+  }
 }

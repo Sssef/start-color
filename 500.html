@@ -15,7 +15,25 @@
       href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;700&family=Open+Sans:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/src/styles/main.css" />
+
+    <script>
+      (function () {
+        try {
+          const STORAGE_KEY = "start-color-theme";
+          const stored = localStorage.getItem(STORAGE_KEY);
+          const isDark = stored
+            ? stored === "dark"
+            : window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+          document.documentElement.dataset.theme = isDark ? "dark" : "light";
+        } catch {
+          // В приватном режиме localStorage может бросать ошибку
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
+
+    <link rel="stylesheet" href="/src/styles/pages/inner-page.css" />
     <link rel="stylesheet" href="/src/styles/pages/error-page.css" />
     <title>500 — Ошибка сервера | StartColor</title>
   </head>

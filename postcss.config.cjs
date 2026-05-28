@@ -1,6 +1,14 @@
 module.exports = {
   plugins: {
-    autoprefixer: {},
+    autoprefixer: {
+      overrideBrowserslist: [
+        "last 2 versions",
+        "> 0.5%",
+        "not dead",
+        "iOS >= 12",
+        "Safari >= 14",
+      ],
+    },
     "postcss-preset-env": {
       stage: 2,
       features: {

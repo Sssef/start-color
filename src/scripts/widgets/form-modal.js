@@ -1,7 +1,6 @@
 import { initPhoneInput } from "@scripts/widgets/phone-input.js";
 
-// Инициализация валидатора телефона (выносится ЗА пределы функции, если модалка одна)
-// Или передаётся как зависимость, если форм несколько
+// Инициализация валидатора телефона (выносится ЗА пределы функции)
 const phoneValidator = initPhoneInput("#req-phone", "#req-phone-country");
 
 /**
@@ -112,20 +111,12 @@ export function initModalForm(modalId, options = {}) {
 
     const formData = new FormData(form);
 
-    if (phoneHandler?.getFullPhone) {
-      formData.set("phone", phoneHandler.getFullPhone());
+    // подставляем полный номер с кодом страны
+    if (phoneValidator?.getFullPhone) {
+      formData.set("phone", phoneValidator.getFullPhone());
     }
 
-    const phoneValue = formData.get("phone");
-    if (phoneValue && !phoneHandler.validate()) {
-      showError(
-        document.getElementById("req-phone"),
-        "Неверный формат телефона",
-      );
-      isValid = false;
-    }
-
-    // Валидация вызывается ОДИН раз, телефон проверяется внутри
+    // валидация вызывается ОДИН раз, телефон проверяется внутри
     const isValid = validate(formData);
     if (!isValid) return;
 

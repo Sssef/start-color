@@ -119,7 +119,6 @@ export default defineConfig(({ mode }) => {
           //     if (id.includes("chart.js")) return "vendor-charts";
           //     if (id.includes("embla-carousel")) return "vendor-carousel";
           //     if (id.includes("glightbox")) return "vendor-lightbox";
-          //     if (id.includes("countup.js")) return "vendor-countup";
           //     // Остальные node_modules — в общий vendor чанк
           //     return "vendor";
           //   }
@@ -177,6 +176,7 @@ export default defineConfig(({ mode }) => {
           dynamicRoutes: ["/", "/about", "/agreement", "/privacy"],
           exclude: ["/404", "/500"],
           readable: true,
+          generateRobotsTxt: false,
         }),
     ].filter(Boolean),
 

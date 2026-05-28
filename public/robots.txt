@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
-
-Sitemap: /sitemap.xml
+Disallow: /404.html
+Disallow: /500.html
+Sitemap: https://start-color.ru/sitemap.xml

@@ -1307,7 +1307,12 @@
                     </i>
                     Подключить
                   </button>
-                  <button class="btn btn--outline">Оставить заявку</button>
+                  <button
+                    class="btn btn--outline"
+                    data-modal-trigger="requestModal"
+                  >
+                    Оставить заявку
+                  </button>
                 </div>
               </div>
             </div>
@@ -1547,7 +1552,12 @@
                     </i>
                     Подключить
                   </button>
-                  <button class="btn btn--outline">Оставить заявку</button>
+                  <button
+                    class="btn btn--outline"
+                    data-modal-trigger="requestModal"
+                  >
+                    Оставить заявку
+                  </button>
                 </div>
               </div>
             </div>
@@ -2508,6 +2518,153 @@
         </div>
       </div>
     </div>
+
+    <dialog
+      id="requestModal"
+      class="modal"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-desc"
+    >
+      <div class="modal__content card">
+        <button
+          type="button"
+          class="modal__close"
+          data-modal-close
+          aria-label="Закрыть форму"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 6L6 18M6 6L18 18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+        <header class="modal__header">
+          <h2
+            id="modal-title"
+            class="modal__title card__title"
+            data-modal-trigger="requestModal"
+          >
+            Оставить заявку
+          </h2>
+          <p id="modal-desc" class="modal__desc">
+            Заполните форму, и менеджер свяжется с вами в течение 15 минут
+          </p>
+        </header>
+
+        <form class="modal__form" id="requestForm" novalidate>
+          <div class="form-field">
+            <label for="req-name" class="form-field__label"
+              >Имя<sup>*</sup></label
+            >
+            <input
+              type="text"
+              id="req-name"
+              name="name"
+              class="form-field__input"
+              placeholder="Как к вам обращаться?"
+              required
+              autocomplete="name"
+            />
+            <span class="form-field__error" aria-live="polite"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="req-email" class="form-field__label"
+              >Email<sup>*</sup></label
+            >
+            <input
+              type="email"
+              id="req-email"
+              name="email"
+              class="form-field__input"
+              placeholder="example@company.ru"
+              required
+              autocomplete="email"
+            />
+            <span class="form-field__error" aria-live="polite"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="req-phone" class="form-field__label">Телефон</label>
+
+            <div class="phone-input">
+              <!-- Селектор кода страны -->
+              <select
+                id="req-phone-country"
+                class="phone-input__country"
+                aria-label="Код страны"
+              >
+                <option value="7">🇷🇺 +7</option>
+                <option value="1">🇺🇸 +1</option>
+                <option value="44">🇬🇧 +44</option>
+                <option value="49">🇩🇪 +49</option>
+                <option value="33">🇫🇷 +33</option>
+                <option value="39">🇮🇹 +39</option>
+                <option value="34">🇪🇸 +34</option>
+                <option value="90">🇹🇷 +90</option>
+                <option value="998">🇺🇿 +998</option>
+                <option value="7">🇰🇿 +7</option>
+                <option value="27">🇿🇦 +27</option>
+                <option value="20">🇪🇬 +20</option>
+                <option value="212">🇲🇦 +212</option>
+              </select>
+
+              <input
+                type="tel"
+                id="req-phone"
+                name="phone"
+                class="form-field__input phone-input__number"
+                placeholder="(999) 123-45-67"
+                inputmode="tel"
+                autocomplete="tel"
+                pattern="^\+?[\d\s\-\(\)]{7,15}$"
+                data-country="7"
+              />
+            </div>
+
+            <span class="form-field__error" aria-live="polite"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="req-type" class="form-field__label"
+              >Тип обращения</label
+            >
+            <select id="req-type" name="type" class="form-field__select">
+              <option value="" disabled selected>Выберите вариант</option>
+              <option value="pilot">Пилотное подключение</option>
+              <option value="demo">Запрос демо-доступа</option>
+              <option value="integration">Интеграция / API</option>
+              <option value="support">Техническая поддержка</option>
+            </select>
+          </div>
+
+          <label class="form-field__checkbox">
+            <input type="checkbox" name="consent" required />
+            <span class="checkbox__label"
+              >Я согласен с
+              <a href="/privacy.html" class="link" target="_blank"
+                >политикой конфиденциальности</a
+              >
+              и обработкой данных</span
+            >
+          </label>
+
+          <button type="submit" class="btn btn--default" style="width: 100%">
+            Отправить заявку
+          </button>
+        </form>
+      </div>
+    </dialog>
 
     <script type="module" src="/src/scripts/main.js" defer></script>
   </body>

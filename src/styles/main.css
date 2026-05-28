@@ -19,6 +19,7 @@
 @import "./blocks/sticker.css";
 @import "./blocks/embla.css";
 @import "./blocks/footer.css";
+@import "./blocks/form-modal.css";
 
 @import "./sections/tariffs.css";
 @import "./sections/news.css";

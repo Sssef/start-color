@@ -49,6 +49,10 @@
   --dark-600: #98a8c6;
   --dark-700: #8a99b6;
 
+  --clr-success: #10b981;
+  --clr-error: #ef4444;
+  --clr-warning: #f59e0b;
+
   /* Text */
   --font-clr-heading: var(--brand-strong);
   --font-clr-body: var(--brand-plain);

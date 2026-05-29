@@ -2,7 +2,10 @@ import { onDocumentReady } from "./utils/dom.js";
 import { mockData } from "./services/mock-api.js";
 import { initHeaderMenu } from "./components/header-menu.js";
 import { initLangPicker } from "./components/lang-picker.js";
-import { initResponsiveAccordions } from "./components/accordion.js";
+import {
+  initResponsiveAccordions,
+  initTariffsAccordionPopup,
+} from "./components/accordion.js";
 import { initToggles, initTariffsToggle } from "./components/toggle.js";
 import { initThemeSwitcher } from "./components/theme-switcher.js";
 import initLiveAICounter from "./widgets/ai-counter.js";
@@ -19,6 +22,7 @@ onDocumentReady(() => {
   initHeaderMenu();
   initLangPicker();
   initResponsiveAccordions();
+  initTariffsAccordionPopup();
   initToggles();
   initThemeSwitcher();
   initTariffsToggle();

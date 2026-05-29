@@ -31,9 +31,6 @@
   height: var(--link-icon-btn-sz);
   text-decoration: none;
   line-height: 1;
-  /* background: none;
-  -webkit-text-fill-color: initial;
-  color: var(--link-clr); */
 }
 .link--icon-btn .link-icon-fill {
   transition: opacity 0.3s ease;
@@ -47,4 +44,3 @@
   -webkit-text-fill-color: var(--font-clr-muted);
   text-decoration: none;
 }
-

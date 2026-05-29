@@ -1,1 +1,6 @@
 /* Section-specific analytics styles can be added here as the block evolves. */
+#analytics {
+  .note {
+    margin-top: clamp(-40px, calc(30px - 5vw), 0px);
+  }
+}

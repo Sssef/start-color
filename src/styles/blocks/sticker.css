@@ -4,6 +4,10 @@
   flex-direction: column;
   height: auto;
   justify-content: center;
+
+  .btn {
+    align-self: center;
+  }
 }
 .sticker__figure {
   margin: 0;

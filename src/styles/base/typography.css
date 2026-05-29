@@ -41,6 +41,7 @@ address {
 
 .logo {
   max-width: 230px;
+  color: var(--font-clr-heading);
 }
 .logo-slogan {
   color: var(--font-clr-heading);
@@ -52,4 +53,15 @@ address {
 .section,
 .inner-section {
   overflow-x: hidden;
+}
+
+.note {
+  text-align: end;
+  font-size: var(--font-sz-xs);
+  color: var(--font-clr-muted);
+  margin-top: var(--gap-xs);
+}
+.note--summary {
+  align-self: flex-end;
+  grid-area: auto / span 2;
 }

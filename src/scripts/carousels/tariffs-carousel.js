@@ -10,7 +10,7 @@ export default function initTariffsCarousel() {
   if (!rootNode || !viewportNode || !prevButtonNode || !nextButtonNode) return;
 
   const controlsNode = prevButtonNode.closest(".embla__controls");
-  const mobileMedia = window.matchMedia("(max-width: 747px)");
+  const mobileMedia = window.matchMedia("(max-width: 768px)");
 
   let emblaApi = null;
   let teardownButtons = null;
@@ -44,7 +44,7 @@ export default function initTariffsCarousel() {
     if (!mobileMedia.matches && emblaApi) {
       teardownButtons?.();
       teardownButtons = null;
-      unsubscribeRTL?.(); // 🔥 Отписываемся
+      unsubscribeRTL?.();
       unsubscribeRTL = null;
       emblaApi.destroy();
       emblaApi = null;
@@ -58,7 +58,6 @@ export default function initTariffsCarousel() {
   mobileMedia.addEventListener("change", syncCarousel);
   syncCarousel();
 
-  // Cleanup при удалении компонента (опционально)
   return () => {
     unsubscribeRTL?.();
     teardownButtons?.();

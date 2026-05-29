@@ -15,7 +15,7 @@
   width: 100%;
 }
 .tariffs__viewport {
-  overflow: hidden;
+  overflow-x: hidden;
   padding: 20px 10px;
 }
 .tariffs__list {
@@ -132,15 +132,9 @@
 .tariffs__accordion.accordion--open .accordion__body {
   visibility: visible;
   height: fit-content;
-  padding-top: 6px;
   padding-bottom: 15px;
 }
-.tariffs__note {
-  text-align: end;
-  font-size: var(--font-sz-xs);
-  color: var(--font-clr-muted);
-  margin-top: var(--gap-xs);
-}
+
 .tariffs-controls {
   display: flex;
   justify-content: flex-end;
@@ -183,9 +177,6 @@
   border-color: var(--brand);
 }
 
-.tariffs__note--summary {
-  align-self: flex-end;
-}
 .tariffs__decoration {
   width: 100%;
   margin-top: var(--gap-lg);
@@ -234,7 +225,6 @@
   .tariffs__accordion.accordion--open .accordion__body {
     opacity: 1;
     height: auto;
-    padding-top: 6px;
     padding-bottom: 15px;
   }
   .tariffs__accordion .chevron {
@@ -243,6 +233,7 @@
 
   .tariffs__viewport {
     overflow: visible;
+    z-index: 2;
   }
 
   .tariffs__list {
@@ -279,5 +270,90 @@
   .tariff-left,
   .tariff-right {
     transition: none;
+  }
+}
+
+.tariffs__card.card {
+  overflow: visible !important;
+}
+
+/* Контекст позиционирования для попапа */
+.tariffs__accordion {
+  position: relative;
+}
+
+/* Кнопка переключения */
+.tariffs__accordion .accordion__toggle {
+  cursor: pointer;
+  pointer-events: auto;
+  min-height: 46px;
+  width: 100%;
+  text-transform: uppercase;
+  justify-content: center;
+  gap: var(--gap-xs);
+  color: var(--brand);
+  font-size: var(--font-sz-xs);
+  font-family: var(--font-fm-body);
+}
+
+/* ===== ПОПАП: абсолютно позиционированный список ===== */
+.tariffs__accordion .accordion__body {
+  position: absolute;
+  top: calc(100% + 12px);
+  z-index: 50;
+  width: 100%;
+  left: 0;
+
+  /* Скрытое состояние */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px) scale(0.98);
+  transform-origin: top center;
+  pointer-events: none;
+  height: auto;
+
+  /* Стилизация */
+  background: var(--bg-elevated);
+  border-radius: var(--border-rad);
+  box-shadow: var(--card-box-shd);
+  padding: var(--gap-sm) var(--gap-md);
+
+  /* Анимация: только transform + opacity (GPU-ускорение) */
+  transition:
+    opacity 0.25s ease,
+    visibility 0s linear 0.25s,
+    transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* Для мобильных: предотвращаем случайные скроллы внутри попапа */
+  touch-action: manipulation;
+}
+
+/* Видимое состояние */
+.tariffs__accordion.accordion--open .accordion__body {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  transition-delay: 0s;
+  left: 0;
+}
+
+/* Шеврон */
+.tariffs__accordion .chevron {
+  display: inline-flex;
+  transition: transform 0.25s ease;
+}
+.tariffs__accordion.accordion--open .chevron {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 767px) {
+  .tariffs__accordion .accordion__body {
+    bottom: 100%;
+    top: initial;
+  }
+  .tariffs__accordion.accordion--open .accordion__body {
+    bottom: 100%;
+    top: initial;
   }
 }

@@ -72,3 +72,28 @@ export function initResponsiveAccordions() {
 
   syncAccordionState();
 }
+
+/**
+ * Закрывает попап-аккордеон при клике вне его области
+ */
+export function initTariffsAccordionPopup() {
+  const popups = document.querySelectorAll(
+    ".tariffs__accordion.accordion--mobile",
+  );
+
+  document.addEventListener("click", (e) => {
+    popups.forEach((accordion) => {
+      const body = accordion.querySelector(".accordion__body");
+      const toggle = accordion.querySelector(".accordion__toggle");
+
+      // Если клик не по аккордеону и он открыт → закрываем
+      if (
+        !accordion.contains(e.target) &&
+        accordion.classList.contains("accordion--open")
+      ) {
+        accordion.classList.remove("accordion--open");
+        toggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+}

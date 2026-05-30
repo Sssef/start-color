@@ -162,6 +162,7 @@
   --chip-border-rad: 0.75rem;
   --chip-font-sz: 0.75rem;
   --chip-bg: var(--blue-500);
+  --chip-clr: var(--brand);
 
   /* Nav */
   --nav-font-sz: 1.125rem;
@@ -234,12 +235,15 @@
   --font-clr-muted: var(--dark-600);
   --font-clr-subtle: var(--dark-700);
 
+  --chip-clr: var(--blue-300);
+
   --bg-page: var(--dark-100);
   --bg-header: var(--dark-200);
   --bg-elevated: var(--dark-300);
   --bg-muted: var(--dark-400);
 
   --card-bg: var(--dark-300);
+  --chip-bg: var(--blue-800);
   --border-clr: var(--grey-800);
 
   --grey-300: var(--grey-700);

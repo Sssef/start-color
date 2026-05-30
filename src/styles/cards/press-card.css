@@ -7,6 +7,10 @@
 
   a {
     text-decoration: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .card__media {
@@ -19,6 +23,11 @@
 
   .card__body {
     padding: var(--card-pad-fixed);
+  }
+
+  .card__footer {
+    padding: 0 var(--card-pad-fixed) var(--card-pad-fixed);
+    margin-top: 0;
   }
 
   .card__text {

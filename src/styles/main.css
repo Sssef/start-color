@@ -25,6 +25,7 @@
 @import "./sections/news.css";
 @import "./sections/press.css";
 @import "./sections/analytics.css";
+@import "./sections/geo.css";
 
 @import "./cards/tools-card.css";
 @import "./cards/download-card.css";

@@ -6,9 +6,10 @@
   display: inline-flex;
   align-items: center;
   gap: var(--icon-spacing);
-  color: var(--brand);
+  color: var(--chip-clr);
   padding: 1px 10px;
 }
+
 .chip__icon {
   width: var(--icon-sz-sm);
   height: var(--icon-sz-sm);
@@ -18,7 +19,7 @@
     height: var(--icon-sz-sm);
 
     path {
-      stroke: var(--brand);
+      stroke: var(--chip-clr);
     }
   }
 }

@@ -2,9 +2,7 @@ export function initResponsiveAccordions() {
   const accordions = Array.from(
     document.querySelectorAll(".accordion--mobile"),
   );
-  if (!accordions.length) {
-    return;
-  }
+  if (!accordions.length) return;
 
   const mobileMedia = window.matchMedia("(max-width: 991.98px)");
 
@@ -19,10 +17,10 @@ export function initResponsiveAccordions() {
     accordions.forEach((accordion) => {
       const isTariffsAccordion =
         accordion.classList.contains("tariffs__accordion");
-      const toggleButton = accordion.querySelector("button");
-      if (!toggleButton) {
-        return;
-      }
+      const toggleButton = accordion.querySelector(
+        ":scope > .accordion__heading > .accordion__toggle",
+      );
+      if (!toggleButton) return;
 
       if (isMobile || isTariffsAccordion) {
         const shouldBeOpen =
@@ -33,32 +31,27 @@ export function initResponsiveAccordions() {
 
         accordion.classList.toggle("accordion--open", isOpen);
         toggleButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        return;
+      } else {
+        accordion.classList.add("accordion--open");
+        toggleButton.setAttribute("aria-expanded", "true");
       }
-
-      accordion.classList.add("accordion--open");
-      toggleButton.setAttribute("aria-expanded", "true");
     });
   };
 
   const sectionContents = document.querySelectorAll(".section__content");
   sectionContents.forEach((content) => {
     content.addEventListener("click", (event) => {
-      const toggleButton = event.target.closest(".accordion--mobile button");
-      if (!toggleButton) {
-        return;
-      }
+      const toggleButton = event.target.closest(".accordion__toggle");
+      if (!toggleButton) return;
 
-      const accordion = toggleButton.closest(".accordion--mobile");
-      if (!accordion) {
-        return;
-      }
+      event.stopPropagation();
+
+      const accordion = toggleButton.closest(".accordion");
+      if (!accordion) return;
 
       const isTariffsAccordion =
         accordion.classList.contains("tariffs__accordion");
-      if (!mobileMedia.matches && !isTariffsAccordion) {
-        return;
-      }
+      if (!mobileMedia.matches && !isTariffsAccordion) return;
 
       const isOpen = accordion.classList.toggle("accordion--open");
       accordion.dataset.userOpen = isOpen ? "true" : "false";

@@ -89,6 +89,14 @@
     background-color: var(--brand);
   }
 
+  .chip {
+    svg {
+      path {
+        stroke: var(--chip-clr);
+      }
+    }
+  }
+
   svg {
     path {
       stroke: var(--brand);

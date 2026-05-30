@@ -1,0 +1,98 @@
+#geo .sticker {
+  justify-content: flex-start;
+}
+
+/* Заголовок региона (внутри аккордеона) */
+.accordion__title {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-xs);
+}
+
+/* Общий счётчик региона — справа */
+.geo__total {
+  margin-inline-start: auto;
+}
+
+/* Город в списке: растягиваем, чип справа */
+.geo__cards .list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--gap-xs);
+}
+
+.geo__country {
+  color: var(--font-clr-muted);
+  font-size: var(--font-sz-xxs);
+  font-style: normal;
+  margin-inline-start: var(--gap-xxs);
+}
+
+/* li, содержащий details — убираем маркеры и лишний отступ */
+.geo__more {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--gap-xs);
+}
+
+/* Стили <details> */
+.geo__details {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.geo__details-toggle {
+  cursor: pointer;
+  font-weight: var(--font-wgt-semi);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-xxs);
+  list-style: none;
+}
+
+/* Убираем нативный треугольник у <summary> */
+.geo__details-toggle::-webkit-details-marker {
+  display: none;
+}
+.geo__details-toggle::marker {
+  content: "";
+}
+
+/* Стрелка рядом с "Ещё городов" */
+.geo__details-toggle::before {
+  content: "";
+  background-image: url("/src/assets/icons/chevron_down.svg");
+  font-size: 0.65rem;
+  transition: transform 0.2s ease;
+  color: var(--brand);
+  width: var(--icon-sz-sm);
+  height: var(--icon-sz-sm);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.geo__details[open] .geo__details-toggle::before {
+  transform: rotate(180deg);
+}
+
+/* Сетка чипов */
+.geo__details-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-xxs);
+  padding: var(--gap-sm) 0 0;
+}
+
+.geo__details-list .chip {
+  white-space: nowrap;
+}
+
+/* RTL: инвертируем стрелку */
+[dir="rtl"] .geo__details-toggle::before {
+  transform: scaleX(-1);
+}
+[dir="rtl"] .geo__details[open] .geo__details-toggle::before {
+  transform: scaleX(-1) rotate(180deg);
+}
